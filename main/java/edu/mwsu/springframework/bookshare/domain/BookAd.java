@@ -2,7 +2,7 @@ package edu.mwsu.springframework.bookshare.domain;
 
 import java.math.BigDecimal;
 
-public class Book {
+public class BookAd {
     private Integer id;
     private String description;
     private BigDecimal price;
@@ -25,16 +25,7 @@ public class Book {
     private String phoneNumber;
     private String userName;
 
-
-
-
-
-
-
-
-
-
-    public Book() {
+    public BookAd() {
     }
 
     public Integer getId() {
@@ -205,8 +196,6 @@ public class Book {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-
 
 }
 

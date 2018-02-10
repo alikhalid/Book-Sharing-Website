@@ -1,6 +1,6 @@
 package edu.mwsu.springframework.bookshare.controller;
 
-import edu.mwsu.springframework.bookshare.domain.Book;
+import edu.mwsu.springframework.bookshare.domain.BookAd;
 import edu.mwsu.springframework.bookshare.service.BookAdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,35 +28,35 @@ public class BookAdController {
         return "books";
     }
 
-    @RequestMapping("/book/{id}")
+    @RequestMapping("/bookAd/{id}")
     public String getBook(@PathVariable Integer id, Model model){
-        Book book = bookAdService.getBookById(id);
-        model.addAttribute("book", book);
-        return "book";
+        BookAd bookAd = bookAdService.getBookById(id);
+        model.addAttribute("bookAd", bookAd);
+        return "bookAd";
     }
 
-    @RequestMapping("/book/edit/{id}")
+    @RequestMapping("/bookAd/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("book", bookAdService.getBookById(id));
+        model.addAttribute("bookAd", bookAdService.getBookById(id));
         return "bookform";
     }
 
-    @RequestMapping("/book/new")
+    @RequestMapping("/bookAd/new")
     public String newProduct(Model model){
-        model.addAttribute("book", new Book());
+        model.addAttribute("bookAd", new BookAd());
         return "bookform";
     }
 
-    @RequestMapping(value = "/book", method = RequestMethod.POST)
-    public String saveOrUpdate(Book book){
-        Book p = bookAdService.saveOrUpdate(book);
-        return "redirect:/book/" + book.getId();
+    @RequestMapping(value = "/bookAd", method = RequestMethod.POST)
+    public String saveOrUpdate(BookAd bookAd){
+        BookAd p = bookAdService.saveOrUpdate(bookAd);
+        return "redirect:/bookAd/" + bookAd.getId();
     }
 
-    @RequestMapping("/book/delete/{id}")
+    @RequestMapping("/bookAd/delete/{id}")
     public String delete(@PathVariable Integer id){
         bookAdService.delete(id);
-        return "redirect:/book";
+        return "redirect:/books";
     }
 }
 

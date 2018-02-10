@@ -1,6 +1,6 @@
 package edu.mwsu.springframework.bookshare.service;
 
-import edu.mwsu.springframework.bookshare.domain.Book;
+import edu.mwsu.springframework.bookshare.domain.BookAd;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -10,54 +10,52 @@ import java.util.*;
 public class BookAdServiceImpl implements BookAdService {
 
     //use hash map to act as a db
-    private Map<Integer, Book> books;
-
-
+    private Map<Integer, BookAd> bookAds;
 
     //bootstrap some data initial data
     private void loadBooks(){
 
-        this.books = new HashMap<>();
+        this.bookAds = new HashMap<>();
 
-        Book book1 = new Book();
-        book1.setId(1);
-        book1.setDescription("Book 1");
-        book1.setPrice(new BigDecimal(12.99));
-        book1.setImageUrl("http://example.com/book1");
+        BookAd bookAd1 = new BookAd();
+        bookAd1.setId(1);
+        bookAd1.setDescription("BookAd 1");
+        bookAd1.setPrice(new BigDecimal(12.99));
+        bookAd1.setImageUrl("http://example.com/bookAd1");
 
-        books.put(1, book1);
+        bookAds.put(1, bookAd1);
 
-        Book book2 = new Book();
-        book2.setId(2);
-        book2.setDescription("Book 2");
-        book2.setPrice(new BigDecimal(12.99));
-        book2.setImageUrl("http://example.com/book2");
+        BookAd bookAd2 = new BookAd();
+        bookAd2.setId(2);
+        bookAd2.setDescription("BookAd 2");
+        bookAd2.setPrice(new BigDecimal(12.99));
+        bookAd2.setImageUrl("http://example.com/bookAd2");
 
-        books.put(2, book2);
+        bookAds.put(2, bookAd2);
 
-        Book book3 = new Book();
-        book3.setId(3);
-        book3.setDescription("Book 3");
-        book3.setPrice(new BigDecimal(12.99));
-        book3.setImageUrl("http://example.com/book3");
+        BookAd bookAd3 = new BookAd();
+        bookAd3.setId(3);
+        bookAd3.setDescription("BookAd 3");
+        bookAd3.setPrice(new BigDecimal(12.99));
+        bookAd3.setImageUrl("http://example.com/bookAd3");
 
-        books.put(3, book3);
+        bookAds.put(3, bookAd3);
 
-        Book book4 = new Book();
-        book4.setId(4);
-        book4.setDescription("Book 4");
-        book4.setPrice(new BigDecimal(12.99));
-        book4.setImageUrl("http://example.com/book4");
+        BookAd bookAd4 = new BookAd();
+        bookAd4.setId(4);
+        bookAd4.setDescription("BookAd 4");
+        bookAd4.setPrice(new BigDecimal(12.99));
+        bookAd4.setImageUrl("http://example.com/bookAd4");
 
-        books.put(4, book4);
+        bookAds.put(4, bookAd4);
 
-        Book book5 = new Book();
-        book5.setId(5);
-        book5.setDescription("Book 5");
-        book5.setPrice(new BigDecimal(12.99));
-        book5.setImageUrl("http://example.com/book5");
+        BookAd bookAd5 = new BookAd();
+        bookAd5.setId(5);
+        bookAd5.setDescription("BookAd 5");
+        bookAd5.setPrice(new BigDecimal(12.99));
+        bookAd5.setImageUrl("http://example.com/bookAd5");
 
-        books.put(5, book5);
+        bookAds.put(5, bookAd5);
     }
 
     public BookAdServiceImpl() {
@@ -65,39 +63,39 @@ public class BookAdServiceImpl implements BookAdService {
     }
 
     @Override
-    public List<Book> listBooks() {
+    public List<BookAd> listBooks() {
 
-        return new ArrayList<>(books.values());
+        return new ArrayList<>(bookAds.values());
     }
 
     @Override
-    public void delete(Integer id){ books.remove(id); }
+    public void delete(Integer id){ bookAds.remove(id); }
 
     @Override
-    public Book getBookById(Integer id) {
-        return books.get(id);
+    public BookAd getBookById(Integer id) {
+        return bookAds.get(id);
     }
 
     @Override
-    public Book saveOrUpdate(Book book) {
+    public BookAd saveOrUpdate(BookAd bookAd) {
 
-        if(book != null){
-            if(book.getId() != null){//this is update
+        if(bookAd != null){
+            if(bookAd.getId() != null){//this is update
 
-            }else{//this is brand new
-                book.setId(getNextKey());
+            }else{//this is new
+                bookAd.setId(getNextKey());
             }
-            books.put(book.getId(), book);//save it in hash map
+            bookAds.put(bookAd.getId(), bookAd);//save it in hash map
         }else{
-            throw new RuntimeException("Cannot create book!");
+            throw new RuntimeException("Cannot create bookAd!");
         }
 
-        return book;
+        return bookAd;
     }
 
     private Integer getNextKey(){
-        if (books.size() == 0)
+        if (bookAds.size() == 0)
             return 1;
-        return Collections.max(books.keySet()) + 1;
+        return Collections.max(bookAds.keySet()) + 1;
     }
 }

@@ -30,23 +30,18 @@
                 <th>Delete</th>
                 
             </tr>
-            <tr th:each="book : ${books}">
-                <td th:text="${book.id}"></td>
-                <td th:text="${book.description}"></td>
-                <td th:text="${book.price}"></td>
-                <td th:text="${book.imageUrl}"></td>
-                <td> <a th:href="${'/book/' + book.id}">View</a></td>
-                <td><a th:href="${'/book/edit/' + book.id}">Edit</a> </td>
-                <td><a th:href="${'/book/delete/' + book.id}">Delete</a> </td>
+            <tr th:each="bookAd : ${books}">
+                <td th:text="${bookAd.id}"></td>
+                <td th:text="${bookAd.description}"></td>
+                <td th:text="${bookAd.price}"></td>
+                <td th:text="${bookAd.imageUrl}"></td>
+                <td> <a th:href="${'/bookAd/' + bookAd.id}">View</a></td>
+                <td><a th:href="${'/bookAd/edit/' + bookAd.id}">Edit</a> </td>
+                <td><a th:href="${'/bookAd/delete/' + bookAd.id}">Delete</a> </td>
             </tr>
         </table>
     </div>
 
-    <div class="row">
-        <div class="col-sm-3">
-            <a href="/book/new">New Book</a>
-        </div>
-    </div>
 </div>
 
 </body>
