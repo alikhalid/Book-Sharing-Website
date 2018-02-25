@@ -24,6 +24,11 @@ public class BookAd {
     private String hashKey;
     private String phoneNumber;
     private String userName;
+    private String firstName;
+    private String lastName;
+
+
+
 
     public BookAd() {
     }
@@ -195,6 +200,21 @@ public class BookAd {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
 }
