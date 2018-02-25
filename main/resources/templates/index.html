@@ -6,12 +6,7 @@
   <title>MSU Book Share</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" th:href="@{webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
-    rel="stylesheet" media="screen" />
-
   <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js" th:src="@{webjars/jquery/3.2.1/jquery.min.js}"></script>
-
-  <link href="../static/css/spring-core.css" th:href="@{css/spring-core.css}" rel="stylesheet" media="screen" />
 
   <!-- Bootstrap core CSS -->
   <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/home-page/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
@@ -46,7 +41,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="http://localhost:8080/books">Books</a>
+                <a class="nav-link js-scroll-trigger" href="books/all">Books</a>
               </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#categories">Categories</a>
@@ -64,10 +59,10 @@
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To MSU Book Share!</div>
-        <div class="intro-heading text-uppercase">Something</div>
+        <div class="intro-heading text-uppercase">Lets Start Sharing</div>
 
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="http://localhost:8080/books">All Books</a>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="http://localhost:8080/bookAd/new">Post Ad</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="books/all">All Books</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="bookAd/new">Post Ad</a>
 
       </div>
 
@@ -123,7 +118,7 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-sm-6 categories-item">
-          <a class="categories-link" href="#">
+          <a class="categories-link" href="/books/cs">
             <div class="categories-hover">
               <div class="categories-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -137,7 +132,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 categories-item">
-          <a class="categories-link" href="#">
+          <a class="categories-link" href="/books/math">
             <div class="categories-hover">
               <div class="categories-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -151,7 +146,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 categories-item">
-          <a class="categories-link" href="#">
+          <a class="categories-link" href="/books/ns">
             <div class="categories-hover">
               <div class="categories-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -165,7 +160,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 categories-item">
-          <a class="categories-link" href="#">
+          <a class="categories-link" href="/books/eng">
             <div class="categories-hover">
               <div class="categories-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -179,7 +174,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 categories-item">
-          <a class="categories-link" href="#">
+          <a class="categories-link" href="/books/bus">
             <div class="categories-hover">
               <div class="categories-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -193,7 +188,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 categories-item">
-          <a class="categories-link" href="#">
+          <a class="categories-link" href="/books/engl">
             <div class="categories-hover">
               <div class="categories-hover-content">
                 <i class="fa fa-plus fa-3x"></i>

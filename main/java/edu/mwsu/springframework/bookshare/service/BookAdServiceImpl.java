@@ -63,9 +63,19 @@ public class BookAdServiceImpl implements BookAdService {
     }
 
     @Override
-    public List<BookAd> listBooks() {
+    public List<BookAd> listBooks(String filter) {
 
-        return new ArrayList<>(bookAds.values());
+        if(filter.equals("all")) {
+            return new ArrayList<>(bookAds.values());
+        }
+        else {
+            ArrayList<BookAd> filteredAds = new ArrayList<>();
+            for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                if(ad.getValue().getCourseName() == filter)
+                    filteredAds.add(ad.getValue());
+            }
+            return filteredAds;
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -21,9 +22,9 @@ public class BookAdController {
         this.bookAdService = bookAdService;
     }
 
-    @RequestMapping("/books")
-    public String listBooks(Model model){
-        List list = bookAdService.listBooks();
+    @RequestMapping(value = "/books/{filter}", method = RequestMethod.GET)
+    public String listBooks(@PathVariable("filter") String filter, Model model){
+        List list = bookAdService.listBooks(filter);
         model.addAttribute("books", list);
         return "books";
     }
