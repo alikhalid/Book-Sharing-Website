@@ -47,7 +47,7 @@
         }
     .form .form-control { margin-bottom: 10px;
         text-align: center;
-        width: 10%;
+        width: 100%;
             }
     @media (min-width:768px) {
         #home{
