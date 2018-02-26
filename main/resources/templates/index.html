@@ -4,16 +4,19 @@
 <head lang="en">
 
   <title>MSU Book Share</title>
+
+  <link rel="shortcut icon" href="/img/msu-favicon.png" th:href="@{/img/msu-favicon.png}" type="image/x-icon" />
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js" th:src="@{webjars/jquery/3.2.1/jquery.min.js}"></script>
+  <script src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/home-page/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/index/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
   />
 
   <!-- Custom fonts for this template -->
-  <link href="/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/home-page/vendor/font-awesome/css/font-awesome.min.css}"
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/index/vendor/font-awesome/css/font-awesome.min.css}"
     rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css' />
@@ -22,7 +25,8 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css' />
 
   <!-- Custom styles for this template -->
-  <link href="/css/agency.min.css" th:href="@{/home-page/css/agency.min.css}" rel="stylesheet" type="text/css" />
+  <link href="/css/index.css" th:href="@{/index/css/index.css}" rel="stylesheet" type="text/css" />
+  <link href="/css/searchBar.css" th:href="@{/searchBar/css/searchBar.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -31,6 +35,10 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
+      <a href="http://localhost:8080/home">
+        <img class="msuTexasLogo" src="img/msu-texas-logo.png" th:src="@{/searchBar/img/msu-texas-logo.png}" alt="" />
+      </a>
+
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Share</a>
 
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -40,9 +48,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="books/all">Books</a>
-              </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="books/all">Books</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#categories">Categories</a>
           </li>
@@ -69,50 +77,11 @@
     </div>
   </header>
 
-  <!-- Services
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Responsive Design</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Web Security</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  -->
-  <!-- categories Grid -->
   <section class="bg-light" id="categories">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Categories</h2>
+          <h2 class="section-category-heading text-uppercase">Categories</h2>
           <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
@@ -124,7 +93,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="/img/categories/cs.jpg" th:src="@{/home-page/img/categories/cs.jpg}" alt="" />
+            <img class="img-fluid" src="/img/categories/cs.jpg" th:src="@{/index/img/categories/cs.jpg}" alt="" />
           </a>
           <div class="categories-caption">
             <h4>Computer Science</h4>
@@ -138,7 +107,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/categories/math.jpg" th:src="@{/home-page/img/categories/math.jpg}" alt="" />
+            <img class="img-fluid" src="img/categories/math.jpg" th:src="@{/index/img/categories/math.jpg}" alt="" />
           </a>
           <div class="categories-caption">
             <h4>Math</h4>
@@ -152,7 +121,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/categories/ns.jpg" th:src="@{/home-page/img/categories/ns.jpg}" alt="" />
+            <img class="img-fluid" src="img/categories/ns.jpg" th:src="@{/index/img/categories/ns.jpg}" alt="" />
           </a>
           <div class="categories-caption">
             <h4>Natural Sciences</h4>
@@ -166,7 +135,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/categories/engi.jpg" th:src="@{/home-page/img/categories/engi.jpg}" alt="" />
+            <img class="img-fluid" src="img/categories/engi.jpg" th:src="@{/index/img/categories/engi.jpg}" alt="" />
           </a>
           <div class="categories-caption">
             <h4>Engineering</h4>
@@ -180,7 +149,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/categories/bus.jpg" th:src="@{/home-page/img/categories/bus.jpg}" alt="" />
+            <img class="img-fluid" src="img/categories/bus.jpg" th:src="@{/index/img/categories/bus.jpg}" alt="" />
           </a>
           <div class="categories-caption">
             <h4>Business</h4>
@@ -194,7 +163,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/categories/engl.jpg" th:src="@{/home-page/img/categories/engl.jpg}" alt="" />
+            <img class="img-fluid" src="img/categories/engl.jpg" th:src="@{/index/img/categories/engl.jpg}" alt="" />
           </a>
           <div class="categories-caption">
             <h4>English</h4>
@@ -377,15 +346,12 @@
       </div>
     </section>
 -->
-
-
   <!-- Contact -->
   <section id="contact">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
       <div class="row">
@@ -469,18 +435,18 @@
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js" th:src="@{/home-page/vendor/jquery/jquery.min.js}"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/home-page/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script src="vendor/jquery/jquery.min.js" th:src="@{/index/vendor/jquery/jquery.min.js}"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/index/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js" th:src="@{/home-page/vendor/jquery-easing/jquery.easing.min.js}"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js" th:src="@{/index/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
   <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js" th:src="@{/home-page/js/jqBootstrapValidation.js}"></script>
-  <script src="js/contact_me.js" th:src="@{/home-page/js/contact_me.js}"></script>
+  <script src="js/jqBootstrapValidation.js" th:src="@{/index/js/jqBootstrapValidation.js}"></script>
+  <script src="js/contact_me.js" th:src="@{/index/js/contact_me.js}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/agency.min.js" th:src="@{/home-page/js/agency.min.js}"></script>
+  <script src="js/agency.min.js" th:src="@{/index/js/agency.min.js}"></script>
 
 </body>
 

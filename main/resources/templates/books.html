@@ -4,20 +4,20 @@
 <head lang="en">
 
     <title>All Books</title>
+
+    <link rel="shortcut icon" href="/img/msu-favicon.png" th:href="@{/img/msu-favicon.png}" type="image/x-icon" />
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
-        rel="stylesheet" media="screen" />
 
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js" th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 
-    <link href="../../static/css/spring-core.css" th:href="@{css/spring-core.css}" rel="stylesheet" media="screen" />
     <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/home-page/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/index/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
     />
 
     <!-- Custom fonts for this template -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/home-page/vendor/font-awesome/css/font-awesome.min.css}"
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/index/vendor/font-awesome/css/font-awesome.min.css}"
         rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css' />
@@ -26,7 +26,9 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css' />
 
     <!-- Custom styles for this template -->
-    <link href="/css/agency.min.css" th:href="@{/home-page/css/agency.min.css}" rel="stylesheet" type="text/css" />
+    <link href="/css/index.css" th:href="@{/index/css/index.css}" rel="stylesheet" type="text/css" />
+    <link href="/css/books.css" th:href="@{/books/css/books.css}" rel="stylesheet" type="text/css" />
+    <link href="/css/searchBar.css" th:href="@{/searchBar/css/searchBar.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -35,7 +37,13 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Share</a>
+
+            <a href="http://localhost:8080/home">
+                <img class="msuTexasLogo" src="img/msu-texas-logo.png" th:src="@{/searchBar/img/msu-texas-logo.png}" alt="" />
+            </a>
+
+            <a class="navbar-brand js-scroll-trigger" href="http://localhost:8080/home">Book Share</a>
+
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -47,19 +55,21 @@
                         <a class="nav-link js-scroll-trigger" href="http://localhost:8080/home">Home</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="http://localhost:8080/home#categories">Categories</a>
-                          </li>
-                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="http://localhost:8080/bookAd/new">Post Ad</a>
                     </li>
-
+                    <li>
+                        <form class="searchBar" style="margin:auto;max-width:300px">
+                            <input type="text" placeholder="Search.." name="searchBar" />
+                            <button type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </li>
 
                 </ul>
             </div>
         </div>
     </nav>
-
-
 
     <section class="bg-light" id="books">
         <div class="container">
@@ -69,22 +79,22 @@
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
 
-                <table class="table table-striped" id="customers">
-                    <tr>
-                        <th>Id</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Image URL</th>
-                        <th>List</th>
-
-                    </tr>
+                <table class="table table-striped" id="bookTable">
                     <tr th:each="bookAd : ${books}">
-                        <td th:text="${bookAd.id}"></td>
-                        <td th:text="${bookAd.description}"></td>
-                        <td th:text="${bookAd.price}"></td>
-                        <td th:text="${bookAd.imageUrl}"></td>
+                        <td class="bookTablePictureAndPrice">
+                            <a th:href="${'/bookAd/' + bookAd.id}">
+                                <img class="bookTableResize" th:src="${bookAd.imageUrl}" />
+                            </a>
+                            <ol class="bookTablePrice" th:text="${bookAd.price}"></ol>
+                        </td>
                         <td>
-                            <a th:href="${'/bookAd/' + bookAd.id}">View</a>
+                            <ol class="bookTableDetailsTitle" th:text="${bookAd.title+', '+bookAd.edition}"></ol>
+                            <ol class="bookTableDetails" th:text="${'ISBN: '+bookAd.ISBN}"></ol>
+                            <ol class="bookTableDetails" th:text="${'Author: '+bookAd.author}"></ol>
+                            <ol class="bookTableDetails" th:text="${bookAd.description}"></ol>
+                            <ol>
+                                <a th:href="${'/bookAd/' + bookAd.id}">More Details</a>
+                            </ol>
                         </td>
 
                     </tr>

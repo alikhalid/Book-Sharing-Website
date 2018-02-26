@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
- <head lang="en">
+<head lang="en">
 
-    <title>MSU Book Share</title>
+    <title>New Book Ad</title>
+
+    <link rel="shortcut icon" href="/img/msu-favicon.png" th:href="@{/img/msu-favicon.png}" type="image/x-icon" />
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js" th:src="@{webjars/jquery/3.2.1/jquery.min.js}"></script>
-
-
+    <script src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/home-page/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/index/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
     />
 
     <!-- Custom fonts for this template -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/home-page/vendor/font-awesome/css/font-awesome.min.css}"
-          rel="stylesheet" type="text/css" />
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/index/vendor/font-awesome/css/font-awesome.min.css}"
+        rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'
@@ -23,150 +24,167 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css' />
 
     <!-- Custom styles for this template -->
-    <link href="/css/agency.min.css" th:href="@{/home-page/css/agency.min.css}" rel="stylesheet" type="text/css" />
+    <link href="/css/index.css" th:href="@{/index/css/index.css}" rel="stylesheet" type="text/css" />
     <link href="/css/bookform.css" th:href="@{/bookform/css/bookform.css}" rel="stylesheet" type="text/css" />
+    <link href="/css/searchBar.css" th:href="@{/searchBar/css/searchBar.css}" rel="stylesheet" type="text/css" />
 
- </head>
+</head>
 
+<body id="page-top">
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
 
-     <body id="page-top">
+            <a href="http://localhost:8080/home">
+                <img class="msuTexasLogo" src="img/msu-texas-logo.png" th:src="@{/searchBar/img/msu-texas-logo.png}" alt="" />
+            </a>
 
-                        <!-- Navigation -->
-                        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-                            <div class="container">
-                                <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Share</a>
+            <a class="navbar-brand js-scroll-trigger" href="http://localhost:8080/home">Book Share</a>
 
-                                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                                    Menu
-                                    <i class="fa fa-bars"></i>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarResponsive">
-                                    <ul class="navbar-nav text-uppercase ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link js-scroll-trigger" href="http://localhost:8080/books">Books</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link js-scroll-trigger" href="#categories">Categories</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-
-
-
-
-
-
-
-            <section class="bg-light" id="categories">
-                <div class="container">
-                    <div class="form">
-                        <div class="form">
-                            <form action="" method="post" accept-charset="utf-8" class="form" th:object="${bookAd}" th:action="@{/bookAd}" role="form">
-                                <input type="hidden" th:field="*{id}"/>
-
-                                  <legend>Add Book</legend>
-
-                                    <div class="row">
-                                        <div class="col-xs-6 col-md-6 required">
-                                            <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  th:field="*{firstName}" th:required="required"  />
-                                        </div>
-
-                                        <div class="col-xs-6 col-md-6 required" >
-                                            <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name" th:field="*{lastName}" th:required="required" />
-                                        </div>
-                                    </div>
-                                        <div class= "required">
-                                            <input type="text" name="userName" value="" class="form-control input-lg required" placeholder="Username" th:field="*{userName}" th:required="required" />
-                                        </div>
-                                        <div class= "required">
-                                            <input type="text" name="email" value="" class="form-control input-lg" placeholder="Email" th:field="*{email}" th:required="required"/>
-                                        </div>
-                                         <div class= "required">                                            <input type="phoneNumber" name="phoneNumber" value="" class="form-control input-lg" placeholder="Phone Number" th:field="*{phoneNumber}"   />
-
-                                            <input type="text" name="bookTitle" value="" class="form-control input-lg" placeholder="Title"  th:field="*{title}" th:required="required"/>
-                                         </div>
-                                            <input type="text" name="bookAuthor" value="" class="form-control input-lg" placeholder="Author"  th:field="*{author}"/>
-                                        <div class= "required">
-                                            <input type="text" name="bookISBN" value="" class="form-control input-lg" placeholder="ISBN" th:field="*{ISBN}" th:required="required" />
-                                        </div>
-                                            <input type="text" name="bookEdition" value="" class="form-control input-lg" placeholder="Edition"  th:field="*{edition}"/>
-                                        <div class= "required">
-                                            <input type="text" name="bookGenre" value="" class="form-control input-lg" placeholder="Genre"  th:field="*{genre}" th:required="required"/>
-                                        </div>
-                                            <input type="text" name="bookPublisher" value="" class="form-control input-lg" placeholder="Publisher" th:field="*{publisher}"/>
-                                            <input type="text" name="bookCondition" value="" class="form-control input-lg" placeholder="Condition"  th:field="*{condition}"/>
-
-
-
-                                                    <label> Status </label>
-                                                        <div class="required">
-                                                            <input type="text" name="bookPrice" value="" class="form-control input-lg required" placeholder="Price"  th:field="*{price}" th:required="required" />
-                                                        </div>
-
-                                                            <div class="row">
-                                                                <div class="col-sm-4">
-                                                                        <label class="container2"> Rent
-                                                                        <input type="checkbox" name="rent" />
-                                                                        <span class="checkmark"></span>
-                                                                        </label>
-
-                                                                </div>
-
-                                                                <div class="col-sm-4">
-                                                                    <label class="container2"> Buy
-                                                                        <input type="checkbox" name="buy" />
-                                                                        <span class="checkmark"></span>
-                                                                    </label>
-
-                                                                </div>
-
-                                                                <div class="ccol-sm-4">
-                                                                    <label class="container2"> Free
-                                                                        <input type="checkbox" name="free" />
-                                                                        <span class="checkmark"></span>
-                                                                    </label>
-
-                                                                </div>
-                                                            </div>
-
-                                                                    <stection>
-                                                                        <label>Select Image</label>
-                                                                        <div>
-
-                                                                        <input class="custom-file-input-button btn btn-success custom-file-input-button-text" type='file' onchange="readURL(this);" th:field="*{imageUrl}" />
-
-
-                                                                        </div>
-                                                                    </stection>
-
-
-
-                                                    <label> Description </label>
-                                                    <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
-
-                                                            <span class="help-block">By clicking Add Book, you agree to our Terms and conditions.</span>
-                                                                                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
-                                                                                    Add Book </button>
-
-
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="http://localhost:8080/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="http://localhost:8080/books/all">Books</a>
+                    </li>
+                    <li>
+                        <form class="searchBar" style="margin:auto;max-width:300px">
+                            <input type="text" placeholder="Search.." name="searchBar" />
+                            <button type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-light" id="categories">
+        <div class="container">
+            <div class="form">
+                <div class="form">
+                    <form action="" method="post" accept-charset="utf-8" class="form" th:object="${bookAd}" th:action="@{/bookAd}" role="form">
+                        <input type="hidden" th:field="*{id}" />
+
+                        <legend>Add Book</legend>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6 required">
+                                <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name" th:field="*{firstName}"
+                                    th:required="required" />
+                            </div>
+
+                            <div class="col-xs-6 col-md-6 required">
+                                <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name" th:field="*{lastName}"
+                                    th:required="required" />
+                            </div>
                         </div>
-                    </div>
+                        <div class="required">
+                            <input type="text" name="userName" value="" class="form-control input-lg required" placeholder="Username" th:field="*{userName}"
+                                th:required="required" />
+                        </div>
+                        <div class="required">
+                            <input type="text" name="email" value="" class="form-control input-lg" placeholder="Email" th:field="*{email}" th:required="required"
+                            />
+                        </div>
+                        <div class="required">
+                            <input type="phoneNumber" name="phoneNumber" value="" class="form-control input-lg" placeholder="Phone Number" th:field="*{phoneNumber}"
+                            />
+
+                            <input type="text" name="bookTitle" value="" class="form-control input-lg" placeholder="Title" th:field="*{title}" th:required="required"
+                            />
+                        </div>
+                        <input type="text" name="bookAuthor" value="" class="form-control input-lg" placeholder="Author" th:field="*{author}" />
+                        <div class="required">
+                            <input type="text" name="bookISBN" value="" class="form-control input-lg" placeholder="ISBN" th:field="*{ISBN}" th:required="required"
+                            />
+                        </div>
+                        <input type="text" name="bookEdition" value="" class="form-control input-lg" placeholder="Edition" th:field="*{edition}"
+                        />
+                        <div class="required">
+                            <input type="text" name="bookGenre" value="" class="form-control input-lg" placeholder="Genre" th:field="*{genre}" th:required="required"
+                            />
+                        </div>
+                        <input type="text" name="bookPublisher" value="" class="form-control input-lg" placeholder="Publisher" th:field="*{publisher}"
+                        />
+                        <input type="text" name="bookCondition" value="" class="form-control input-lg" placeholder="Condition" th:field="*{condition}"
+                        />
+
+
+
+                        <label> Status </label>
+                        <div class="required">
+                            <input type="text" name="bookPrice" value="" class="form-control input-lg required" placeholder="Price" th:field="*{price}"
+                                th:required="required" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="container2"> Rent
+                                    <input type="checkbox" name="rent" />
+                                    <span class="checkmark"></span>
+                                </label>
+
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label class="container2"> Buy
+                                    <input type="checkbox" name="buy" />
+                                    <span class="checkmark"></span>
+                                </label>
+
+                            </div>
+
+                            <div class="ccol-sm-4">
+                                <label class="container2"> Free
+                                    <input type="checkbox" name="free" />
+                                    <span class="checkmark"></span>
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <stection>
+                            <label>Select Image</label>
+                            <div>
+
+                                <input class="custom-file-input-button btn btn-success custom-file-input-button-text" type='file' onchange="readURL(this);"
+                                    th:field="*{imageUrl}" />
+
+
+                            </div>
+                        </stection>
+
+
+
+                        <label> Description </label>
+                        <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
+
+                        <span class="help-block">By clicking Add Book, you agree to our Terms and conditions.</span>
+                        <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                            Add Book </button>
+
+
+                    </form>
                 </div>
+            </div>
+        </div>
 
-            </section>
+    </section>
 
 
-     <script>
+    <script>
 
-     </script>
-     </body>
+    </script>
+</body>
 
- </html>
+</html>

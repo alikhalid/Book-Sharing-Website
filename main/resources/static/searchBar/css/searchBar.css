@@ -1,0 +1,36 @@
+form.searchBar input[type=text] {
+    padding-top: 14px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.searchBar button {
+    float: left;
+    padding-top: 14px;
+    width: 20%;
+    padding: 10px;
+    background: #862633;
+    color: white;
+    font-size: 18px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.searchBar button:hover {
+    background: #ecac00;
+}
+
+form.searchBar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+img.msuTexasLogo{
+    max-height: 40px;
+}
