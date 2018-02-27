@@ -36,11 +36,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
 
-            <a href="http://localhost:8080/home">
-                <img class="msuTexasLogo" src="img/msu-texas-logo.png" th:src="@{/searchBar/img/msu-texas-logo.png}" alt="" />
-            </a>
-
-            <a class="navbar-brand js-scroll-trigger" href="http://localhost:8080/home">Book Share</a>
+            <a class="navbar-brand js-scroll-trigger" href="http://localhost:8080/home">
+                <img class="msuTexasLogo" src="img/msu-texas-logo1.png" th:src="@{/searchBar/img/msu-texas-logo1.png}" alt="" />Book Share</a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,14 +51,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="http://localhost:8080/books/all">Books</a>
-                    </li>
-                    <li>
-                        <form class="searchBar" style="margin:auto;max-width:300px">
-                            <input type="text" placeholder="Search.." name="searchBar" />
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
                     </li>
                 </ul>
             </div>
@@ -185,6 +174,21 @@
     <script>
 
     </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js" th:src="@{/index/vendor/jquery/jquery.min.js}"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/index/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js" th:src="@{/index/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js" th:src="@{/index/js/jqBootstrapValidation.js}"></script>
+    <script src="js/contact_me.js" th:src="@{/index/js/contact_me.js}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js" th:src="@{/index/js/agency.min.js}"></script>
+
 </body>
 
 </html>

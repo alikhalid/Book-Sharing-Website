@@ -1,5 +1,5 @@
 form.searchBar input[type=text] {
-    padding-top: 14px;
+    padding-top: 10px;
     padding: 10px;
     font-size: 18px;
     border: 1px solid grey;
@@ -10,7 +10,7 @@ form.searchBar input[type=text] {
 
 form.searchBar button {
     float: left;
-    padding-top: 14px;
+    padding-top: 10px;
     width: 20%;
     padding: 10px;
     background: #862633;
@@ -32,5 +32,5 @@ form.searchBar::after {
 }
 
 img.msuTexasLogo{
-    max-height: 40px;
+    max-height: 50px;
 }
