@@ -23,8 +23,16 @@ public class BookAdController {
     }
 
     @RequestMapping(value = "/books/{filter}", method = RequestMethod.GET)
-    public String listBooks(@PathVariable("filter") String filter, Model model){
-        List list = bookAdService.listBooks(filter);
+    public String listBooks(@PathVariable("filter") String filter, Model model,
+                            @RequestParam(value = "searchBar", required = false) String searchBy ){
+        try {
+            if (searchBy == null){
+                searchBy = new String("");
+            }
+        } catch (Exception e) {}
+
+        List list = bookAdService.listBooks(filter, new String(searchBy));
+
         model.addAttribute("books", list);
         return "books";
     }

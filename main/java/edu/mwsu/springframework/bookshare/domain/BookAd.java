@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class BookAd {
     private Integer id;
     private String description;
-    private BigDecimal price;
+    private Double price;
     private String imageUrl;
     private String title;
     private String author;
@@ -27,9 +27,6 @@ public class BookAd {
     private String firstName;
     private String lastName;
 
-
-
-
     public BookAd() {
     }
 
@@ -49,11 +46,11 @@ public class BookAd {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

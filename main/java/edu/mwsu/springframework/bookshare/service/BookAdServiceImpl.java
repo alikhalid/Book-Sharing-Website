@@ -20,7 +20,7 @@ public class BookAdServiceImpl implements BookAdService {
         BookAd bookAd1 = new BookAd();
         bookAd1.setId(1);
         bookAd1.setDescription("The Larson CALCULUS program has a long history of innovation in the calculus market. It has been widely praised by a generation of students and professors for its solid and effective pedagogy that addresses the needs of a broad range of teaching and learning styles and environments. Each title is just one component in a comprehensive calculus course program that carefully integrates and coordinates print, media, and technology products for successful teaching and learning.");
-        bookAd1.setPrice(new BigDecimal(12.99));
+        bookAd1.setPrice(12.99);
         bookAd1.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/51IBi5Fx5oL._SX387_BO1,204,203,200_.jpg");
         bookAd1.setTitle("Calculus");
         bookAd1.setAuthor("Ron Larson");
@@ -46,7 +46,7 @@ public class BookAdServiceImpl implements BookAdService {
         BookAd bookAd2 = new BookAd();
         bookAd2.setId(2);
         bookAd2.setDescription("I have a cat. His name is Paul.");
-        bookAd2.setPrice(new BigDecimal(12.99));
+        bookAd2.setPrice(12.99);
         bookAd2.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/51l3ucqW6nL._SX402_BO1,204,203,200_.jpg");
         bookAd2.setTitle("Object-Oriented Software Engineering");
         bookAd2.setAuthor("David C. Kung Dr.");
@@ -72,7 +72,7 @@ public class BookAdServiceImpl implements BookAdService {
         BookAd bookAd3 = new BookAd();
         bookAd3.setId(3);
         bookAd3.setDescription("BookAd 1");
-        bookAd3.setPrice(new BigDecimal(12.99));
+        bookAd3.setPrice(12.99);
         bookAd3.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/41UWC4kbxGL._SX414_BO1,204,203,200_.jpg");
         bookAd3.setTitle("Campbell Biology");
         bookAd3.setAuthor("Jane B. Reece");
@@ -104,7 +104,7 @@ public class BookAdServiceImpl implements BookAdService {
                 "Enhances your Teaching―The authors are dedicated to supporting your teaching and your student’s learning, which is why they listen to YOU and develop resources based on YOUR suggestions and course needs. This is the only author team on the market that carefully reviews each and every resource to ensure cohesion. \n" +
                 "\n" +
                 "Accessible to All―This learning program has moved toward tighter compliance with the Web Content Accessibility Guidelines, and provides students the opportunity to learn regardless of learning style or disability. What’s more, it earned a perfect score of 100 points possible by Quality Matters, an independent organization that reviews and certifies the quality of online courses and online components. ");
-        bookAd4.setPrice(new BigDecimal(12.99));
+        bookAd4.setPrice(12.99);
         bookAd4.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/41gH8BAcR0L._SX389_BO1,204,203,200_.jpg");
         bookAd4.setTitle("Understanding Business");
         bookAd4.setAuthor("William G Nickels");
@@ -130,7 +130,7 @@ public class BookAdServiceImpl implements BookAdService {
         BookAd bookAd5 = new BookAd();
         bookAd5.setId(5);
         bookAd5.setDescription("I once cooked and ate my shoe.");
-        bookAd5.setPrice(new BigDecimal(12.99));
+        bookAd5.setPrice(12.99);
         bookAd5.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/51OOdInnHWL._SX389_BO1,204,203,200_.jpg");
         bookAd5.setTitle("Basic English");
         bookAd5.setAuthor("Julie Lachance");
@@ -156,7 +156,7 @@ public class BookAdServiceImpl implements BookAdService {
         BookAd bookAd6 = new BookAd();
         bookAd6.setId(6);
         bookAd6.setDescription("Thermodynamics, An Engineering Approach, eighth edition, covers the basic principles of thermodynamics while presenting a wealth of real-world engineering examples so students get a feel for how thermodynamics is applied in engineering practice. This text helps students develop an intuitive understanding by emphasizing the physics and physical arguments. Cengel and Boles explore the various facets of thermodynamics through careful explanations of concepts and use of numerous practical examples and figures, having students develop necessary skills to bridge the gap between knowledge and the confidence to properly apply their knowledge.");
-        bookAd6.setPrice(new BigDecimal(12.99));
+        bookAd6.setPrice(12.99);
         bookAd6.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/5122xXTVPZL._SX395_BO1,204,203,200_.jpg");
         bookAd6.setTitle("Thermodynamics: An Engineering Approach");
         bookAd6.setAuthor("Yunus A. Cengel & Michael A. Boles");
@@ -178,8 +178,6 @@ public class BookAdServiceImpl implements BookAdService {
 
 
         bookAds.put(6, bookAd6);
-
-
     }
 
     public BookAdServiceImpl() {
@@ -187,15 +185,28 @@ public class BookAdServiceImpl implements BookAdService {
     }
 
     @Override
-    public List<BookAd> listBooks(String filter) {
+    public List<BookAd> listBooks(String filter, String searchBy) {
 
-        if(filter.equals("all")) {
-            return new ArrayList<>(bookAds.values());
+        if(searchBy.equals("")) {
+            if (filter.equals("all")) {
+                return new ArrayList<>(bookAds.values());
+            } else {
+                ArrayList<BookAd> filteredAds = new ArrayList<>();
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().getGenre().equals(filter))
+                        filteredAds.add(ad.getValue());
+                }
+                return filteredAds;
+            }
         }
-        else {
+        else{
             ArrayList<BookAd> filteredAds = new ArrayList<>();
             for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
-                if(ad.getValue().getCourseName() == filter)
+                if (ad.getValue().getCourseName().equals(searchBy) ||
+                        ad.getValue().getAuthor().equals(searchBy) ||
+                        ad.getValue().getGenre().equals(searchBy) ||
+                        ad.getValue().getTitle().equals(searchBy) ||
+                        ad.getValue().getUserName().equals(searchBy))
                     filteredAds.add(ad.getValue());
             }
             return filteredAds;
