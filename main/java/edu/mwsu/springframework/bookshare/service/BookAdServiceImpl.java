@@ -67,7 +67,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd2.setUserName("AKhal322");
 
 
-        bookAds.put(1, bookAd2);
+        bookAds.put(2, bookAd2);
 
         BookAd bookAd3 = new BookAd();
         bookAd3.setId(3);
@@ -93,7 +93,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd3.setUserName("AKhal322");
 
 
-        bookAds.put(1, bookAd3);
+        bookAds.put(3, bookAd3);
 
         BookAd bookAd4 = new BookAd();
         bookAd4.setId(4);
@@ -125,7 +125,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd4.setUserName("AKhal322");
 
 
-        bookAds.put(1, bookAd4);
+        bookAds.put(4, bookAd4);
 
         BookAd bookAd5 = new BookAd();
         bookAd5.setId(5);
@@ -151,7 +151,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd5.setUserName("AKhal322");
 
 
-        bookAds.put(1, bookAd5);
+        bookAds.put(5, bookAd5);
 
         BookAd bookAd6 = new BookAd();
         bookAd6.setId(6);
@@ -177,7 +177,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd6.setUserName("AKhal322");
 
 
-        bookAds.put(1, bookAd6);
+        bookAds.put(6, bookAd6);
 
 
     }
@@ -187,9 +187,19 @@ public class BookAdServiceImpl implements BookAdService {
     }
 
     @Override
-    public List<BookAd> listBooks() {
+    public List<BookAd> listBooks(String filter) {
 
-        return new ArrayList<>(bookAds.values());
+        if(filter.equals("all")) {
+            return new ArrayList<>(bookAds.values());
+        }
+        else {
+            ArrayList<BookAd> filteredAds = new ArrayList<>();
+            for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                if(ad.getValue().getCourseName() == filter)
+                    filteredAds.add(ad.getValue());
+            }
+            return filteredAds;
+        }
     }
 
     @Override
