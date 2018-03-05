@@ -202,11 +202,11 @@ public class BookAdServiceImpl implements BookAdService {
         else{
             ArrayList<BookAd> filteredAds = new ArrayList<>();
             for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
-                if (ad.getValue().getCourseName().equals(searchBy) ||
-                        ad.getValue().getAuthor().equals(searchBy) ||
-                        ad.getValue().getGenre().equals(searchBy) ||
-                        ad.getValue().getTitle().equals(searchBy) ||
-                        ad.getValue().getUserName().equals(searchBy))
+                if (ad.getValue().getCourseName().toLowerCase().contains(searchBy.toLowerCase()) ||
+                        ad.getValue().getAuthor().toLowerCase().contains(searchBy.toLowerCase()) ||
+                        ad.getValue().getGenre().toLowerCase().contains(searchBy.toLowerCase()) ||
+                        ad.getValue().getTitle().toLowerCase().contains(searchBy.toLowerCase()) ||
+                        ad.getValue().getUserName().toLowerCase().contains(searchBy.toLowerCase()))
                     filteredAds.add(ad.getValue());
             }
             return filteredAds;
