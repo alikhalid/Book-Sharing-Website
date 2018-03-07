@@ -1,0 +1,81 @@
+img.adImage {
+  max-width: 400px;
+  max-height: auto;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+ol.bookAdDetailsTitle {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  padding: -10px;
+  width: 400px;
+  overflow: wrap;
+  vertical-align: top;
+
+}
+
+p.bookAdDesc {
+  font-size: 18px;
+  font-weight: 400;
+  padding: -10px;
+  width: 800px;
+  overflow: wrap;
+  vertical-align: top;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+}
+
+td.bookAd {
+  vertical-align: top;
+}
+p {
+  text-indent: 50px;
+}
+
+td.userSec {
+  vertical-align: top;
+  background-color: #862633;
+  padding: 6px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+ol.userSec {
+  background-color: #862633;
+  color: #f2f2f2;
+  display: block;
+  list-style-type: decimal;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: .25em;
+  -webkit-margin-start: .25px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 6px;
+}
+
+ol.contactMe{
+  text-align: center;
+  font-weight: 700;
+  background-color: #862633;
+  color: #ecac00;
+  font-size: 32px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: underline;
+
+  display: block;
+  list-style-type: decimal;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: .25em;
+  -webkit-margin-start: .25px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 6px;
+}
+
+ol.bookAdPrice{
+  font-weight: 700;
+  color: #862633;
+  font-size: 24px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: underline;
+}
