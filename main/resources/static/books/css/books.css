@@ -64,7 +64,7 @@ ol.bookTableDescription {
   overflow: hidden;
   max-width: 500px;
   width: auto;
-  height: 16px * 14px * 3; /* Fallback for non-webkit */
+  height: 16px * 14px * 3 * 2; /* Fallback for non-webkit */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -96,3 +96,69 @@ ol {
   left: 1px;
   background-color: rgba(0, 0, 0, 0.459);
 }
+
+ul.dropdown-menu{
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  z-index: 10000;
+  overflow: visible !important;
+}
+
+div.dropdown{
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  z-index: 10000;
+  overflow: visible !important;
+}
+
+ol.filters{
+  width: 140px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+
+}
+table.filterSelection{
+  display: none;
+}
+.accordion {
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+/*
+  <button onclick="myFunction()">Filters</button>
+*/

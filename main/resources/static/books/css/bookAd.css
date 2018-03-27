@@ -14,13 +14,14 @@ ol.bookAdDetailsTitle {
   width: 400px;
   overflow: wrap;
   vertical-align: top;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
 p.bookAdDesc {
   font-size: 18px;
   font-weight: 400;
-  padding: -10px;
+  padding: 8px;
   width: 800px;
   overflow: wrap;
   vertical-align: top;
@@ -33,6 +34,7 @@ td.bookAd {
 }
 p {
   text-indent: 50px;
+  vertical-align: top;
 }
 
 td.userSec {
@@ -78,4 +80,10 @@ ol.bookAdPrice{
   font-size: 24px;
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: underline;
+}
+
+ol.bookAdDetails{
+  text-indent: 0px;
+  text-align: left;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

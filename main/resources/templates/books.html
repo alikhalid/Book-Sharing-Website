@@ -75,15 +75,99 @@
                     <h2 class="section-heading text-uppercase"></h2>
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
+                <button class="accordion">Filters</button>
+                <div class="panel">
+                    <table id="filterSelections">
+                        <form>
+                            <tr>
+                                <td>
+                                    Sort By:
+                                </td>
+                                <td colspan="2">
+                                    <ol class="filters">
+                                        Categories:
+                                    </ol>
+                                </td>
+                                <td>
+                                    <ol class="filters">
+                                        Price:
+                                    </ol>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ol class="filters">
+                                        <input type="radio" name="sort" value="sortTitle" checked="checked" />
+                                        <label for="aortTitle">Title</label>
+
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="radio" name="sort" value="sortAuthor" />
+                                        <label for="sortAuthor">Author</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="radio" name="sort" value="sortEdition" />
+                                        <label for="sortEdition">Edition</label>
+                                    </ol>
+                                </td>
+                                <td>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="category" name="category" value="math" />
+                                        <label for="math">Math</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="category" name="category" value="bus" />
+                                        <label for="math">Business</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="category" name="category" value="cs" />
+                                        <label for="cs">Comp. Sci.</label>
+                                    </ol>
+                                </td>
+                                <td>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="category" name="category" value="ns" />
+                                        <label for="ns">Science</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="category" name="category" value="engl" />
+                                        <label for="engl">English</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="category" name="category" value="engi" />
+                                        <label for="engi">Engineering</label>
+                                    </ol>
+                                </td>
+                                <td>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="price" name="price" value="buy" />
+                                        <label for="buy">Buy</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="price" name="price" value="rent" />
+                                        <label for="rent">Rent</label>
+                                    </ol>
+                                    <ol class="filters">
+                                        <input type="checkbox" id="price" name="price" value="free" />
+                                        <label for="free">Free</label>
+                                    </ol>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                </div>
+
 
                 <table class="table table-striped" id="bookTable">
+                    <tr>
+                    </tr>
                     <tr th:each="bookAd : ${books}">
                         <td class="bookTablePictureAndPrice">
 
                             <a th:href="${'/bookAd/' + bookAd.id}">
                                 <div class="BookandPrice">
                                     <img class="bookTableResize" th:src="${bookAd.imageUrl}" />
-                                    <div class = "bottom-right" th:text="${bookAd.price}">
+                                    <div class="bottom-right" th:text="${bookAd.price}">
 
                                     </div>
                                 </div>
@@ -99,9 +183,10 @@
                         </td>
 
                     </tr>
+                    <tr>
+                    </tr>
                 </table>
             </div>
-
         </div>
     </section>
 
@@ -118,6 +203,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js" th:src="@{/index/js/agency.min.js}"></script>
+
+    <script src="js/books.js" th:src="@{/books/js/books.js}"></script>
 
 </body>
 

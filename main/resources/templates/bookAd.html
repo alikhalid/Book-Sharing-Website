@@ -82,13 +82,16 @@
                 <tr>
                     <td>
                         <img class="adImage" th:src="${bookAd.imageUrl}" />
-                    </td>
-                    <td class="bookAd">
-                        <ol class="bookAdDetailsTitle" th:text="${bookAd.title+', '+bookAd.edition}"></ol>
                         <ol class="bookAdDetails" th:text="${'ISBN: '+bookAd.ISBN}"></ol>
+                    </td>
+                    <td width="1px">
+                    </td>
+                    <td colspan="2">
+                        <ol class="bookAdDetailsTitle" th:text="${bookAd.title+', '+bookAd.edition}"></ol>
                         <ol class="bookAdDetails" th:text="${'Author: '+bookAd.author+', '+bookAd.publisher}"></ol>
                         <ol class="bookAdDetails" th:text="${'Condition: '+bookAd.condition+', '+bookAd.type}"></ol>
                         <ol class="bookAdDetails" th:text="${'Course: '+bookAd.courseName+', '+bookAd.courseNum}"></ol>
+                        <p class="bookAdDesc" th:text="${bookAd.description}"></p>
                     </td>
 
 
@@ -97,16 +100,9 @@
                 <tr>
                     <td class="userSec">
                         <ol class="contactMe" th:text="${bookAd.price}"></ol>
-                    </td>
-                    <td class="userSec">
                         <ol class="userSec" th:text="${'Owner: '+bookAd.userName}"></ol>
                         <ol class="userSec" th:text="${bookAd.email}"></ol>
                         <ol class="userSec" th:text="${bookAd.phoneNumber}"></ol>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p class="bookAdDesc" th:text="${bookAd.description}"></p>
                     </td>
                 </tr>
             </table>
