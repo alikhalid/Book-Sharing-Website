@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <label class="container2"> Buy
+                            <label class="container2"> Sell
                                 <input type="checkbox" name="buy" />
                                 <span class="checkmark"></span>
                             </label>
@@ -144,11 +144,15 @@
 
                     <stection>
                         <label>Select Image</label>
+                        <div class ="polaroid">
+                            <img class="container2" id="blah" src="#" alt="" />
+
+                        </div>
                         <div>
 
                             <input class="custom-file-input-button btn btn-success custom-file-input-button-text" type='file' onchange="readURL(this);"
                                    th:field="*{imageUrl}" />
-                            <img class="custom-file-input-button btn btn-success custom-file-input-button-text" id="blah" src="#" alt="your image" />
+
 
 
                         </div>
