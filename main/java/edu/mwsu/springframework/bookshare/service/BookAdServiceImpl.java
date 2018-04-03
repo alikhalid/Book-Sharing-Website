@@ -52,7 +52,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd2.setAuthor("David C. Kung Dr.");
         bookAd2.setISBN("978-0073376257");
         bookAd2.setEdition("1st Edition");
-        bookAd2.setGenre("Computer Science");
+        bookAd2.setGenre("Computer");
         bookAd2.setType("Hardcover");
         bookAd2.setCourseNum("CMPS 8654");
         bookAd2.setCourseName("Software Engineering");
@@ -190,26 +190,29 @@ public class BookAdServiceImpl implements BookAdService {
         if(searchBy.equals("")) {
             if (filter.equals("all")) {
                 return new ArrayList<>(bookAds.values());
-            } else {
+            }
+            //code for search
+            else {
                 ArrayList<BookAd> filteredAds = new ArrayList<>();
                 for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
-                    if (ad.getValue().getGenre().equals(filter))
+                    if (ad.getValue().getGenre().toLowerCase().contains(filter.toLowerCase()))
                         filteredAds.add(ad.getValue());
                 }
                 return filteredAds;
             }
         }
+        //code for search
         else{
-            ArrayList<BookAd> filteredAds = new ArrayList<>();
+            ArrayList<BookAd> searchedAds = new ArrayList<>();
             for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
                 if (ad.getValue().getCourseName().toLowerCase().contains(searchBy.toLowerCase()) ||
                         ad.getValue().getAuthor().toLowerCase().contains(searchBy.toLowerCase()) ||
                         ad.getValue().getGenre().toLowerCase().contains(searchBy.toLowerCase()) ||
                         ad.getValue().getTitle().toLowerCase().contains(searchBy.toLowerCase()) ||
                         ad.getValue().getUserName().toLowerCase().contains(searchBy.toLowerCase()))
-                    filteredAds.add(ad.getValue());
+                    searchedAds.add(ad.getValue());
             }
-            return filteredAds;
+            return searchedAds;
         }
     }
 
