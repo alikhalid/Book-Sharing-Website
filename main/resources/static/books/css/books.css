@@ -87,7 +87,6 @@ ol {
   position: relative;
   text-align: left;
   color: rgb(255, 255, 255);
-  
 }
 .bottom-right {
   font-size: 18px;
@@ -97,29 +96,28 @@ ol {
   background-color: rgba(0, 0, 0, 0.459);
 }
 
-ul.dropdown-menu{
+ul.dropdown-menu {
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
   z-index: 10000;
   overflow: visible !important;
 }
 
-div.dropdown{
+div.dropdown {
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
   z-index: 10000;
   overflow: visible !important;
 }
 
-ol.filters{
+ol.filters {
   width: 140px;
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
   margin-top: -2px;
   margin-bottom: -2px;
-
 }
-table.filterSelection{
+table.filterSelection {
   display: none;
 }
 .accordion {
@@ -136,12 +134,13 @@ table.filterSelection{
   transition: 0.4s;
 }
 
-.active, .accordion:hover {
+.active,
+.accordion:hover {
   background-color: #ccc;
 }
 
 .accordion:after {
-  content: '\002B';
+  content: "\002B";
   color: #777;
   font-weight: bold;
   float: right;
@@ -159,6 +158,15 @@ table.filterSelection{
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
-/*
-  <button onclick="myFunction()">Filters</button>
-*/
+
+
+table.filters{
+  position: fixed;
+  vertical-align: top;
+  left: 30px;
+  top: 100px;
+  text-align: left;
+  max-width: 400px;
+  width: auto;
+  border-right: 1px solid black;
+}

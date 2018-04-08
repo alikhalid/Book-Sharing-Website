@@ -58,15 +58,6 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/bookAd/new">Post Ad</a>
                     </li>
-                    <li>
-                        <form class="searchBar" style="margin:auto;max-width:300px">
-                            <input type="text" placeholder="Search.." name="searchBar" />
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
-                    </li>
-
                 </ul>
             </div>
         </div>
@@ -80,29 +71,59 @@
             </div>
             <table>
                 <tr>
-                    <td>
+
+                    <td class="topLeft userSec">
+                        <ol class="contactMe" th:text="${bookAd.price}"></ol>
                         <img class="adImage" th:src="${bookAd.imageUrl}" />
-                        <ol class="bookAdDetails" th:text="${'ISBN: '+bookAd.ISBN}"></ol>
+                        <ol class="userSec" th:text="${'ISBN: '+bookAd.ISBN}"></ol>
+                        <ol class="userSec" th:text="${'Owner: '+bookAd.userName}"></ol>
+                        <ol class="userSec" th:text="${bookAd.email}"></ol>
+                        <ol class="userSec" th:text="${bookAd.phoneNumber}"></ol>
                     </td>
-                    <td width="1px">
-                    </td>
-                    <td colspan="2">
+                    <td class="topLeft">
                         <ol class="bookAdDetailsTitle" th:text="${bookAd.title+', '+bookAd.edition}"></ol>
                         <ol class="bookAdDetails" th:text="${'Author: '+bookAd.author+', '+bookAd.publisher}"></ol>
                         <ol class="bookAdDetails" th:text="${'Condition: '+bookAd.condition+', '+bookAd.type}"></ol>
                         <ol class="bookAdDetails" th:text="${'Course: '+bookAd.courseName+', '+bookAd.courseNum}"></ol>
-                        <p class="bookAdDesc" th:text="${bookAd.description}"></p>
+                        <ol class="bookAdDetails" th:text="${bookAd.description}"></ol>
                     </td>
-
-
                 </tr>
 
+            </table>
+            <table>
                 <tr>
-                    <td class="userSec">
-                        <ol class="contactMe" th:text="${bookAd.price}"></ol>
-                        <ol class="userSec" th:text="${'Owner: '+bookAd.userName}"></ol>
-                        <ol class="userSec" th:text="${bookAd.email}"></ol>
-                        <ol class="userSec" th:text="${bookAd.phoneNumber}"></ol>
+                    <td>
+                        <button class="btn default center" id="myBtn">Edit Ad</button>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" placeholder="Hash Key" name="edit" />
+                                                    <button class="btn default center" type="submit">Edit Ad</button>
+                                                </td>
+                                                <td class="space">
+
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" placeholder="Hash Key" name="delete" />
+                                                    <button class="btn btn-danger center" type="submit">Delete</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -110,6 +131,12 @@
         </div>
 
     </section>
+
+    <div class="footer">
+        <p>
+            <a class="terms" href="#terms">Terms and Conditions</a>
+        </p>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js" th:src="@{/index/vendor/jquery/jquery.min.js}"></script>
@@ -124,6 +151,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js" th:src="@{/index/js/agency.min.js}"></script>
+
+    <script src="js/books.js" th:src="@{/books/js/books.js}"></script>
 
 </body>
 

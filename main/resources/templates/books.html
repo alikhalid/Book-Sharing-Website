@@ -55,11 +55,9 @@
                         <a class="nav-link js-scroll-trigger" href="/bookAd/new">Post Ad</a>
                     </li>
                     <li>
-                        <form class="searchBar" style="margin:auto;max-width:300px">
+
+                        <form class="searchBar">
                             <input type="text" placeholder="Search.." name="searchBar" />
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
                         </form>
                     </li>
 
@@ -75,88 +73,89 @@
                     <h2 class="section-heading text-uppercase"></h2>
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
-                <button class="accordion">Filters</button>
+                <button class="accordion">Sort By</button>
                 <div class="panel">
                     <table id="filterSelections">
                         <form>
                             <tr>
                                 <td>
-                                    Sort By:
-                                </td>
-                                <td colspan="2">
                                     <ol class="filters">
-                                        Categories:
-                                    </ol>
-                                </td>
-                                <td>
-                                    <ol class="filters">
-                                        Price:
-                                    </ol>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <ol class="filters">
-                                        <input type="radio" name="sort" value="sortTitle" checked="checked" />
+                                        <input type="radio" name="sort" value="sortTitle" onClick="location.href='/books/all?sortBy=title'" />
                                         <label for="aortTitle">Title</label>
 
                                     </ol>
                                     <ol class="filters">
-                                        <input type="radio" name="sort" value="sortAuthor" />
+                                        <input type="radio" name="sort" value="sortAuthor" onClick="location.href='/books/all?sortBy=author'" />
                                         <label for="sortAuthor">Author</label>
+
                                     </ol>
                                     <ol class="filters">
-                                        <input type="radio" name="sort" value="sortEdition" />
+                                        <input type="radio" name="sort" value="sortEdition" onClick="location.href='/books/all?sortBy=edition'" />
                                         <label for="sortEdition">Edition</label>
                                     </ol>
                                 </td>
-                                <td>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="category" name="category" value="math" />
-                                        <label for="math">Math</label>
-                                    </ol>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="category" name="category" value="business" />
-                                        <label for="math">Business</label>
-                                    </ol>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="category" name="category" value="computer" />
-                                        <label for="cs">Comp. Sci.</label>
-                                    </ol>
-                                </td>
-                                <td>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="category" name="category" value="science" />
-                                        <label for="ns">Science</label>
-                                    </ol>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="category" name="category" value="english" />
-                                        <label for="engl">English</label>
-                                    </ol>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="category" name="category" value="engineering" />
-                                        <label for="engi">Engineering</label>
-                                    </ol>
-                                </td>
-                                <td>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="price" name="price" value="buy" />
-                                        <label for="buy">Buy</label>
-                                    </ol>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="price" name="price" value="rent" />
-                                        <label for="rent">Rent</label>
-                                    </ol>
-                                    <ol class="filters">
-                                        <input type="checkbox" id="price" name="price" value="free" />
-                                        <label for="free">Free</label>
-                                    </ol>
-                                </td>
+
                             </tr>
                         </form>
                     </table>
                 </div>
 
+
+                <table class="filters">
+                    <td>
+                        <form>
+
+                            <ol class="filters">
+                                Categories:
+                            </ol>
+
+                            <ol class="filters">
+                                <input type="checkbox" id="categories" name="categories" value="math" />
+                                <label for="math">Math</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="categories" name="categories" value="business" />
+                                <label for="math">Business</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="categories" name="categories" value="computer" />
+                                <label for="cs">Comp. Sci.</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="categories" name="categories" value="science" />
+                                <label for="ns">Science</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="categories" name="categories" value="english" />
+                                <label for="engl">English</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="categories" name="categories" value="engineering" />
+                                <label for="engi">Engineering</label>
+                            </ol>
+                            <ol>
+
+                            </ol>
+                            <ol class="filters">Filter By:</ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="filterBy" name="filterBy" value="buy" />
+                                <label for="buy">Buy</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="filterBy" name="filterBy" value="rent" />
+                                <label for="rent">Rent</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="checkbox" id="filterBy" name="filterBye" value="free" />
+                                <label for="free">Free</label>
+                            </ol>
+                            <ol>
+
+                            </ol>
+                            <button type="submit">Apply</button>
+                        </form>
+                    </td>
+                </table>
 
                 <table class="table table-striped" id="bookTable">
                     <tr>
@@ -189,6 +188,13 @@
             </div>
         </div>
     </section>
+
+    <div class="footer">
+        <p>
+            <a class ="terms" href="#terms">Terms and Conditions</a>
+
+        </p>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js" th:src="@{/index/vendor/jquery/jquery.min.js}"></script>

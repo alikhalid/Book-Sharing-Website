@@ -1,21 +1,23 @@
 form.searchBar input[type=text] {
-    padding-top: 10px;
+    padding-top: 12px;
     padding: 10px;
-    font-size: 18px;
-    border: 1px solid grey;
+    font-size: 14px;
     float: left;
     width: 80%;
     background: #f1f1f1;
+    border-radius:15px; 
+    -moz-border-radius:15px; 
+    -webkit-border-radius:15px; 
 }
 
 form.searchBar button {
     float: left;
-    padding-top: 10px;
+    padding-top: 12px;
     width: 20%;
     padding: 10px;
     background: #862633;
     color: white;
-    font-size: 18px;
+    font-size: 14px;
     border: 1px solid grey;
     border-left: none;
     cursor: pointer;
@@ -34,3 +36,20 @@ form.searchBar::after {
 img.msuTexasLogo{
     max-height: 50px;
 }
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #862633;
+    color: white;
+    text-align: center;
+ }
+
+ .terms{
+     text-decoration-color: white;
+     text-decoration: none;
+     color:white;
+     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+ }
