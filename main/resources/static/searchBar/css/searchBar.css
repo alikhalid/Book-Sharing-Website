@@ -46,11 +46,13 @@ img.msuTexasLogo{
     background-color: #862633;
     color: white;
     text-align: center;
+    padding: 8px 0;
  }
 
  .terms{
      text-decoration-color: white;
      text-decoration: none;
      color:white;
+     font-size: 12px;
      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
  }

@@ -93,35 +93,28 @@
             <table>
                 <tr>
                     <td>
-                        <button class="btn default center" id="myBtn">Edit Ad</button>
+                        <a href="#edit" class="btn default center">Edit Ad</a>
 
-                        <!-- The Modal -->
-                        <div id="myModal" class="modal">
+                        <div id="edit" class="modalDialog">
+                            <div>
+                                <a href="#close" title="Close" class="close">X</a>
+                                <form>
+                                    <input class="form-control" type="text" placeholder="Hash Key" name="edit" />
+                                    <button class="btn default center" type="submit">Edit Ad</button>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#delete" class="btn btn-danger center">Delete Ad</a>
 
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <span class="close">&times;</span>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <input class="form-control" type="text" placeholder="Hash Key" name="edit" />
-                                                    <button class="btn default center" type="submit">Edit Ad</button>
-                                                </td>
-                                                <td class="space">
-
-                                                </td>
-                                                <td>
-                                                    <input class="form-control" type="text" placeholder="Hash Key" name="delete" />
-                                                    <button class="btn btn-danger center" type="submit">Delete</button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </form>
-                                </div>
+                        <div id="delete" class="modalDialog">
+                            <div>
+                                <a href="#close" title="Close" class="close">X</a>
+                                <form>
+                                    <input class="form-control" type="text" placeholder="Hash Key" name="delete" />
+                                    <button class="btn btn-danger center" type="submit">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </td>
