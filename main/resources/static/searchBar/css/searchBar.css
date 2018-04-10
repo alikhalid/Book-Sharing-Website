@@ -5,9 +5,8 @@ form.searchBar input[type=text] {
     float: left;
     width: 80%;
     background: #f1f1f1;
-    border-radius:15px; 
-    -moz-border-radius:15px; 
-    -webkit-border-radius:15px; 
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px; 
 }
 
 form.searchBar button {
@@ -17,10 +16,12 @@ form.searchBar button {
     padding: 10px;
     background: #862633;
     color: white;
-    font-size: 14px;
+    font-size: 15px;
     border: 1px solid grey;
     border-left: none;
     cursor: pointer;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 form.searchBar button:hover {
