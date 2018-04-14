@@ -39,7 +39,7 @@ img.msuTexasLogo{
 }
 
 .footer {
-    position: relative;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -47,6 +47,7 @@ img.msuTexasLogo{
     color: white;
     text-align: center;
     padding: 8px 0;
+    z-index: 9999999;
  }
 
  .terms{

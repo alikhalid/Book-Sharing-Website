@@ -51,13 +51,6 @@ section h3.section-subheading {
   text-transform: none;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-@media (min-width: 200px) {
-  section {
-    padding: 100px;
-  }
-}
-
 @media (min-width: 768px) {
   section {
     padding: 100px;
@@ -317,31 +310,98 @@ section#contact .section-heading {
 section#contact .form-group {
   margin-bottom: 25px;
 }
+section#contact .form-group input,
+section#contact .form-group textarea {
+  padding: 20px;
+}
+section#contact .form-group input.form-control {
+  height: auto;
+}
+section#contact .form-group textarea.form-control {
+  height: 248px;
+}
+section#contact .form-control:focus {
+  border-color: #862633;
+  box-shadow: none;
+}
+section#contact ::-webkit-input-placeholder {
+  font-weight: 700;
+  color: #ced4da;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+section#contact :-moz-placeholder {
+  font-weight: 700;
+  color: #ced4da;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+section#contact ::-moz-placeholder {
+  font-weight: 700;
+  color: #ced4da;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+section#contact :-ms-input-placeholder {
+  font-weight: 700;
+  color: #ced4da;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+footer {
+  padding: 25px 0;
+  text-align: center;
+}
+footer span.copyright {
+  font-size: 90%;
+  line-height: 40px;
+  text-transform: none;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+footer ul.quicklinks {
+  font-size: 90%;
+  line-height: 40px;
+  margin-bottom: 0;
+  text-transform: none;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ul.social-buttons {
+  margin-bottom: 0;
+}
+ul.social-buttons li a {
+  font-size: 20px;
+  line-height: 40px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #fff;
+  border-radius: 100%;
+  outline: 0;
+  background-color: #212529;
+}
+ul.social-buttons li a:active,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:hover {
+  background-color: #862633;
+}
 
 td.aboutUs{
-  vertical-align: top;
-  color: #ffffff;
+  background-color: #fff;
   width: 50%;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 td.contactUs{
-  vertical-align: top;
-  color: #ffffff;
+  background-color: #fff;
   width: 50%;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 table.contactUsAboutUs{
-  vertical-align: top;
   width: 80%;
-  table-layout: fixed
 }
 
 td.space{
   width: 10%;
 }
 
-.space{
-  padding: 10px;
+div.contact{
+  width: 100%;
 }

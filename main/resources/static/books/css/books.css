@@ -4,6 +4,8 @@
   font-size: 14px;
   width: 100%;
   margin: auto;
+  margin-left: 40px;
+  overflow: hidden;
 }
 
 #bookTable td,
@@ -37,6 +39,8 @@
 img.bookTableResize {
   max-width: 200px;
   max-height: auto;
+  min-width: 50px;
+  min-height: 50px;
   width: 100%;
   height: auto;
 }
@@ -127,11 +131,13 @@ table.filterSelection {
   cursor: pointer;
   padding: 18px;
   width: 100%;
+  margin-left: 40px;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
+  min-width: 500px;
 }
 
 .active,
@@ -144,7 +150,7 @@ table.filterSelection {
   color: #777;
   font-weight: bold;
   float: right;
-  margin-left: 5px;
+  margin-left: 40px;
 }
 
 .active:after {
@@ -156,17 +162,22 @@ table.filterSelection {
   background-color: white;
   max-height: 0;
   overflow: hidden;
+  margin-left: 40px;
   transition: max-height 0.2s ease-out;
+  width: auto;
+  min-width: 400px;
 }
 
 
 table.filters{
   position: fixed;
   vertical-align: top;
-  left: 30px;
+  left: 10px;
   top: 100px;
   text-align: left;
-  max-width: 400px;
-  width: auto;
+  max-width: 200px;
+  width: 20px;
   border-right: 1px solid black;
+  z-index: 9999999;
+  background: white;
 }

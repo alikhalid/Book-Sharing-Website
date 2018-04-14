@@ -112,27 +112,31 @@
                             </ol>
 
                             <ol class="filters">
-                                <input type="checkbox" id="categories" name="categories" value="math" />
+                                <input type="radio" id="categories" name="categories" value="all" />
+                                <label for="all">All</label>
+                            </ol>
+                            <ol class="filters">
+                                <input type="radio" id="categories" name="categories" value="math" />
                                 <label for="math">Math</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="categories" name="categories" value="business" />
+                                <input type="radio" id="categories" name="categories" value="business" />
                                 <label for="math">Business</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="categories" name="categories" value="computer" />
+                                <input type="radio" id="categories" name="categories" value="computer" />
                                 <label for="cs">Comp. Sci.</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="categories" name="categories" value="science" />
+                                <input type="radio" id="categories" name="categories" value="science" />
                                 <label for="ns">Science</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="categories" name="categories" value="english" />
+                                <input type="radio" id="categories" name="categories" value="english" />
                                 <label for="engl">English</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="categories" name="categories" value="engineering" />
+                                <input type="radio" id="categories" name="categories" value="engineering" />
                                 <label for="engi">Engineering</label>
                             </ol>
                             <ol>
@@ -140,15 +144,15 @@
                             </ol>
                             <ol class="filters">Filter By:</ol>
                             <ol class="filters">
-                                <input type="checkbox" id="filterBy" name="filterBy" value="buy" />
+                                <input type="radio" id="filterBy" name="filterBy" value="buy" />
                                 <label for="buy">Buy</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="filterBy" name="filterBy" value="rent" />
+                                <input type="radio" id="filterBy" name="filterBy" value="rent" />
                                 <label for="rent">Rent</label>
                             </ol>
                             <ol class="filters">
-                                <input type="checkbox" id="filterBy" name="filterBye" value="free" />
+                                <input type="radio" id="filterBy" name="filterBy" value="free" />
                                 <label for="free">Free</label>
                             </ol>
                             <ol>
@@ -159,7 +163,7 @@
                     </td>
                 </table>
 
-                <table class="table table-striped" id="bookTable">
+                <table class="table table-striped bookTable" id="bookTable">
                     <tr>
                     </tr>
                     <tr th:each="bookAd : ${books}">
@@ -176,11 +180,11 @@
 
                         </td>
                         <td>
-                            <ol class="bookTableDetailsTitle" th:text="${bookAd.title}"></ol>
-                            <ol class="bookTableEdition" th:text="${bookAd.edition}"></ol>
-                            <ol class="bookTableDetails" th:text="${'ISBN: '+bookAd.ISBN}"></ol>
-                            <ol class="bookTableDetails" th:text="${'Author: '+bookAd.author}"></ol>
-                            <ol class="bookTableDescription" th:text="${bookAd.description}"></ol>
+                            <ol class="bookTableDetailsTitle left" th:text="${bookAd.title}"></ol>
+                            <ol class="bookTableEdition left" th:text="${bookAd.edition}"></ol>
+                            <ol class="bookTableDetails left" th:text="${'ISBN: '+bookAd.ISBN}"></ol>
+                            <ol class="bookTableDetails left" th:text="${'Author: '+bookAd.author}"></ol>
+                            <ol class="bookTableDescription left" th:text="${bookAd.description}"></ol>
                         </td>
 
                     </tr>
@@ -193,7 +197,7 @@
 
     <div class="footer">
         <p>
-            <a class ="terms" href="#terms">Terms and Conditions</a>
+            <a class ="terms" href="https://app.termly.io/document/terms-of-use-for-website/4d036d05-aff8-4ac6-9de5-457982fa0f20">Terms and Conditions</a>
 
         </p>
     </div>
