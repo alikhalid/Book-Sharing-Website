@@ -36,7 +36,7 @@ public class BookAdController {
             }
         } catch (Exception e) {}
 
-        if( categories != null || filterBy != null) {
+        if(categories != null || filterBy != null) {
             list = bookAdService.applyFilter(filterBy, categories);
         }
         else {
