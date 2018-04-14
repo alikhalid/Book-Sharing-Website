@@ -3,8 +3,8 @@ package edu.mwsu.springframework.bookshare.service;
 import edu.mwsu.springframework.bookshare.domain.BookAd;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.*;
+
 
 @Component
 public class BookAdServiceImpl implements BookAdService {
@@ -13,7 +13,7 @@ public class BookAdServiceImpl implements BookAdService {
     private Map<Integer, BookAd> bookAds;
 
     //bootstrap some data initial data
-    private void loadBooks(){
+    private void loadBooks() {
 
         this.bookAds = new HashMap<>();
 
@@ -36,7 +36,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd1.setFree(false);
         bookAd1.setCondition("Like New");
         bookAd1.setPublisher("Brooks Cole");
-        bookAd1.setHashKey("L33T");
+        bookAd1.setHashKey(/*generateHash(bookAd1.getTitle(), bookAd1.getId())*/ "123");
         bookAd1.setPhoneNumber("808-080-8080");
         bookAd1.setUserName("AKhal322");
 
@@ -62,7 +62,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd2.setFree(false);
         bookAd2.setCondition("Like New");
         bookAd2.setPublisher("McGraw-Hill Education");
-        bookAd2.setHashKey("L33T");
+        bookAd2.setHashKey(generateHash(bookAd2.getTitle(), bookAd2.getId()));
         bookAd2.setPhoneNumber("808-080-8080");
         bookAd2.setUserName("AKhal322");
 
@@ -83,12 +83,12 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd3.setCourseNum("BIO 1234");
         bookAd3.setCourseName("Biology 1");
         bookAd3.setEmail("AKhal322@rocketmail.com");
-        bookAd3.setBuy(true);
-        bookAd3.setRent(false);
+        bookAd3.setBuy(false);
+        bookAd3.setRent(true);
         bookAd3.setFree(false);
         bookAd3.setCondition("Like New");
         bookAd3.setPublisher("Benjamin Cummings");
-        bookAd3.setHashKey("L33T");
+        bookAd3.setHashKey(generateHash(bookAd3.getTitle(), bookAd3.getId()));
         bookAd3.setPhoneNumber("808-080-8080");
         bookAd3.setUserName("AKhal322");
 
@@ -115,12 +115,12 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd4.setCourseNum("BIS 2461");
         bookAd4.setCourseName("Fondations of Business");
         bookAd4.setEmail("AKhal322@rocketmail.com");
-        bookAd4.setBuy(true);
-        bookAd4.setRent(false);
+        bookAd4.setBuy(false);
+        bookAd4.setRent(true);
         bookAd4.setFree(false);
         bookAd4.setCondition("Like New");
         bookAd4.setPublisher("McGraw-Hill Education");
-        bookAd4.setHashKey("L33T");
+        bookAd4.setHashKey(generateHash(bookAd4.getTitle(), bookAd4.getId()));
         bookAd4.setPhoneNumber("808-080-8080");
         bookAd4.setUserName("AKhal322");
 
@@ -141,12 +141,12 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd5.setCourseNum("ENG 1111");
         bookAd5.setCourseName("Learn English 101");
         bookAd5.setEmail("AKhal322@rocketmail.com");
-        bookAd5.setBuy(true);
+        bookAd5.setBuy(false);
         bookAd5.setRent(false);
-        bookAd5.setFree(false);
+        bookAd5.setFree(true);
         bookAd5.setCondition("Like New");
         bookAd5.setPublisher("McGraw-Hill Education");
-        bookAd5.setHashKey("L33T");
+        bookAd5.setHashKey(generateHash(bookAd5.getTitle(), bookAd5.getId()));
         bookAd5.setPhoneNumber("808-080-8080");
         bookAd5.setUserName("AKhal322");
 
@@ -167,12 +167,12 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd6.setCourseNum("ENGI 2555");
         bookAd6.setCourseName("Thermodynamics");
         bookAd6.setEmail("AKhal322@rocketmail.com");
-        bookAd6.setBuy(true);
+        bookAd6.setBuy(false);
         bookAd6.setRent(false);
-        bookAd6.setFree(false);
+        bookAd6.setFree(true);
         bookAd6.setCondition("Like New");
         bookAd6.setPublisher("McGraw-Hill Education");
-        bookAd6.setHashKey("L33T");
+        bookAd6.setHashKey(generateHash(bookAd6.getTitle(), bookAd6.getId()));
         bookAd6.setPhoneNumber("808-080-8080");
         bookAd6.setUserName("AKhal322");
 
@@ -187,7 +187,7 @@ public class BookAdServiceImpl implements BookAdService {
     @Override
     public List<BookAd> listBooks(String filter, String searchBy) {
 
-        if(searchBy.equals("")) {
+        if (searchBy.equals("")) {
             if (filter.equals("all")) {
                 return new ArrayList<>(bookAds.values());
             }
@@ -202,7 +202,7 @@ public class BookAdServiceImpl implements BookAdService {
             }
         }
         //code for search
-        else{
+        else {
             ArrayList<BookAd> searchedAds = new ArrayList<>();
             for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
                 if (ad.getValue().getCourseName().toLowerCase().contains(searchBy.toLowerCase()) ||
@@ -217,7 +217,87 @@ public class BookAdServiceImpl implements BookAdService {
     }
 
     @Override
-    public void delete(Integer id){ bookAds.remove(id); }
+    public List<BookAd> applyFilter(String filter, String cat) {
+        ArrayList<BookAd> filteredAds = new ArrayList<>();
+
+        if (filter != null && cat != null) {
+            if (filter.equals("buy")) {
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().getGenre().toLowerCase().contains(cat.toLowerCase()) &&
+                            ad.getValue().isBuy())
+                        filteredAds.add(ad.getValue());
+                }
+            } else if (filter.equals("free")) {
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().getGenre().toLowerCase().contains(cat.toLowerCase()) &&
+                            ad.getValue().isFree())
+                        filteredAds.add(ad.getValue());
+                }
+            } else {
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().getGenre().toLowerCase().contains(cat.toLowerCase()) &&
+                            ad.getValue().isRent())
+                        filteredAds.add(ad.getValue());
+                }
+            }
+
+        } else if (filter != null && cat == null) {
+            if (filter.equals("buy")) {
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().isBuy())
+                        filteredAds.add(ad.getValue());
+                }
+            } else if (filter.equals("free")) {
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().isFree())
+                        filteredAds.add(ad.getValue());
+                }
+            } else {
+                for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                    if (ad.getValue().isRent())
+                        filteredAds.add(ad.getValue());
+                }
+            }
+        } else {
+            for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+                if (ad.getValue().getGenre().toLowerCase().contains(cat.toLowerCase()))
+                    filteredAds.add(ad.getValue());
+            }
+        }
+
+        return filteredAds;
+    }
+
+    @Override
+    public void delete(String hashKey) {
+        for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+            if (ad.getValue().getHashKey().equals(hashKey))
+                bookAds.remove(ad.getValue().getId());
+        }
+    }
+
+    @Override
+    public BookAd getBookByHashKey(String hashKey) {
+
+        for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
+            if (ad.getValue().getHashKey().equals(hashKey))
+                return ad.getValue();
+        }
+        return null;
+    }
+
+    @Override
+    public boolean verifyHash(Integer id, String hashKey) {
+        if (bookAds.get(id).getHashKey().equals(hashKey))
+            return true;
+        return false;
+    }
+
+    public String generateHash(String book, Integer id) {
+        book.concat(String.valueOf(id));
+        Integer hashKey = book.hashCode();
+        return hashKey.toString();
+    }
 
     @Override
     public BookAd getBookById(Integer id) {
@@ -227,21 +307,22 @@ public class BookAdServiceImpl implements BookAdService {
     @Override
     public BookAd saveOrUpdate(BookAd bookAd) {
 
-        if(bookAd != null){
-            if(bookAd.getId() != null){//this is update
+        if (bookAd != null) {
+            if (bookAd.getId() != null) {//this is update
 
-            }else{//this is new
+            } else {//this is new
                 bookAd.setId(getNextKey());
             }
+            bookAd.setHashKey(generateHash(bookAd.getTitle(), bookAd.getId()));
             bookAds.put(bookAd.getId(), bookAd);//save it in hash map
-        }else{
+        } else {
             throw new RuntimeException("Cannot create bookAd!");
         }
 
         return bookAd;
     }
 
-    private Integer getNextKey(){
+    private Integer getNextKey() {
         if (bookAds.size() == 0)
             return 1;
         return Collections.max(bookAds.keySet()) + 1;
