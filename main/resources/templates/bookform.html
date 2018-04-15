@@ -61,10 +61,10 @@
     <div class="container">
         <div class="form">
             <div class="form">
-                <form action="" method="post" accept-charset="utf-8" class="form" th:object="${bookAd}" th:action="@{/bookAd}" role="form">
+                <form action="" name="MyForm" method="post" accept-charset="utf-8" class="form" th:object="${bookAd}" th:action="@{/bookAd}" role="form">
                     <input type="hidden" th:field="*{id}" />
 
-                    <legend>Add Book</legend>
+                    <legend class="section-heading text-uppercase">Add Book</legend>
                     <label> User Info </label>
                     <div class="row">
                         <div class="col-xs-6 col-md-6 required">
@@ -88,7 +88,9 @@
                     <div class="required">
                         <input type="phoneNumber" name="phoneNumber" value="" class="form-control input-lg" placeholder="Phone Number" th:field="*{phoneNumber}"
                         />
+                    </div>
                         <label> Book Info </label>
+                    <div class="required">
                         <input type="text" name="bookTitle" value="" class="form-control input-lg" placeholder="Title" th:field="*{title}" th:required="required"
                         />
                     </div>
@@ -100,13 +102,26 @@
                     <input type="text" name="bookEdition" value="" class="form-control input-lg" placeholder="Edition" th:field="*{edition}"
                     />
                     <div class="required">
-                        <input type="text" name="bookGenre" value="" class="form-control input-lg" placeholder="Genre" th:field="*{genre}" th:required="required"
-                        />
+                        <select class="form-control input-lg center" th:field="*{genre}">
+                            <option value=""> Math</option>
+                            <option value=""> Business</option>
+                            <option value=""> Comp. Sci</option>
+                            <option value=""> Science</option>
+                            <option value=""> English</option>
+                            <option value=""> Engineering</option>
+
+                        </select>
                     </div>
                     <input type="text" name="bookPublisher" value="" class="form-control input-lg" placeholder="Publisher" th:field="*{publisher}"
                     />
-                    <input type="text" name="bookCondition" value="" class="form-control input-lg" placeholder="Condition" th:field="*{condition}"
-                    />
+                    <select class="form-control   input-lg " th:onselect="*{condition}" >
+                        <option value=""> New</option>
+                        <option value=""> Like New</option>
+                        <option value=""> Good</option>
+                        <option value=""> Bad</option>
+                    </select>
+                    <input type="text" name="bookUrl" value="" class="form-control input-lg" placeholder="URL" th:field="*{imageUrl}" />
+
 
 
 
@@ -118,25 +133,22 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <label class="container2"> Rent
-                                <input type="checkbox" name="rent" />
-                                <span class="checkmark"></span>
+                            <label class=""> Rent
+                                    <input class="filters" type="radio" name="type" value="" th:onclick="*{rent}" />
                             </label>
 
                         </div>
 
                         <div class="col-sm-4">
-                            <label class="container2"> Sell
-                                <input type="checkbox" name="buy" />
-                                <span class="checkmark"></span>
+                            <label class=""> Sell
+                                <input class="filters" type="radio" name="type" value="" th:onclick="*{buy}"  />
                             </label>
 
                         </div>
 
                         <div class="col-sm-4">
-                            <label class="container2"> Free
-                                <input type="checkbox" name="free" />
-                                <span class="checkmark"></span>
+                            <label class=""> Free
+                                <input class="filters" type="radio" name="type" value=""  th:onclick="*{free}"  />
                             </label>
 
                         </div>
@@ -150,8 +162,8 @@
                         </div>
                         <div>
 
-                            <input class="custom-file-input-button btn btn-success custom-file-input-button-text" type='file' onchange="readURL(this);"
-                                   th:field="*{imageUrl}" />
+                            <input class=" btn  btn-danger " type='file' onchange="readURL(this);"
+                                    />
 
 
 
@@ -167,8 +179,8 @@
                     <label> Description </label>
                     <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
 
-                    <span class="help-block">By clicking Add Book, you agree to our Terms and conditions.</span>
-                    <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                    <span class="help-block">By clicking Post AD, you agree to our Terms and conditions.</span>
+                    <button class="btn btn-danger btn-lg btn-primary btn-block " type="submit">
                         Post AD </button>
 
 
@@ -206,6 +218,14 @@
 
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function Checkme() {
+        if(document.MyForm.rent.checked == true)
+        {
+            document.MyForm.free.;
+        }
+
     }
 </script>
 
