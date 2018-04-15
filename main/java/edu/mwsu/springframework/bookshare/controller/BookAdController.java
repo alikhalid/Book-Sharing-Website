@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.constraints.Null;
+import java.awt.print.Book;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
 public class BookAdController {
 
     private BookAdService bookAdService;
+    private int i = 0;
+    private List list;
 
     @Autowired
     public void setBookAdService(BookAdService bookAdService) {
@@ -27,22 +31,42 @@ public class BookAdController {
     public String listBooks(@PathVariable("cat") String cat, Model model,
                             @RequestParam(value = "searchBar", required = false) String searchBy,
                             @RequestParam(value = "categories", required = false) String categories,
-                            @RequestParam(value = "filterBy", required = false) String filterBy){
-        List list = null;
+                            @RequestParam(value = "filterBy", required = false) String filterBy,
+                            @RequestParam(value = "sortBy", required = false) String sortBy) {
+        if ( i == 0) {
+            list = bookAdService.listBooks("all", "");
+            i = 2;
+        }
 
         try {
-            if (searchBy == null){
+            if (searchBy == null) {
                 searchBy = new String("");
             }
-        } catch (Exception e) {}
-
-        if( categories != null || filterBy != null) {
-            list = bookAdService.applyFilter(filterBy, categories);
+        } catch (Exception e) {
         }
-        else {
+
+        if (sortBy != null) {
+            if (sortBy.equals("author")) {
+                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getAuthor().compareTo(o2.getAuthor()));
+            }
+            else if (sortBy.equals("title")) {
+                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getTitle().compareTo(o2.getTitle()));
+            }
+            else {
+                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getEdition().compareTo(o2.getEdition()));
+            }
+        }
+
+        if (categories != null && categories.equals("all")) {
             list = bookAdService.listBooks(cat, new String(searchBy));
-        }
+        } else {
 
+            if (categories != null || filterBy != null) {
+                list = bookAdService.applyFilter(filterBy, categories);
+            } else {
+                list = bookAdService.listBooks(cat, new String(searchBy));
+            }
+        }
         model.addAttribute("books", list);
         return "books";
     }
@@ -51,10 +75,9 @@ public class BookAdController {
     public String getBook(@PathVariable("id") Integer id, Model model,
                           @RequestParam(value = "delete", required = false) String delete,
                           @RequestParam(value = "edit", required = false) String edit
-                          )
-    {
+    ) {
 
-        if(edit == null && delete == null) {
+        if (edit == null && delete == null) {
             try {
                 BookAd bookAd = bookAdService.getBookById(id);
                 model.addAttribute("bookAd", bookAd);
@@ -64,8 +87,7 @@ public class BookAdController {
                 System.out.println("This book ad doesn't exist.");
             }
             return "bookAd";
-        }
-        else if (edit != null){
+        } else if (edit != null) {
             model.addAttribute("bookAd", bookAdService.getBookByHashKey(edit));
             if (model.asMap().get("bookAd") != null &&
                     bookAdService.verifyHash(id, edit))
@@ -76,8 +98,7 @@ public class BookAdController {
                 model.addAttribute("bookAd", bookAd);
                 return "bookAd";
             }
-        }
-        else {
+        } else {
             try {
                 if (bookAdService.verifyHash(id, delete))
                     bookAdService.delete(delete);
@@ -86,9 +107,10 @@ public class BookAdController {
                     model.addAttribute("bookAd", bookAd);
                     return "bookAd";
                 }
-            } catch (Exception e) {}
-                return "redirect:/books/all";
+            } catch (Exception e) {
             }
+            return "redirect:/books/all";
+        }
     }
 
     @RequestMapping("/bookAd/edit/{id}")
@@ -99,13 +121,13 @@ public class BookAdController {
     }
 
     @RequestMapping("/bookAd/new")
-    public String newProduct(Model model){
+    public String newProduct(Model model) {
         model.addAttribute("bookAd", new BookAd());
         return "bookform";
     }
 
     @RequestMapping(value = "/bookAd", method = RequestMethod.POST)
-    public String saveOrUpdate(BookAd bookAd){
+    public String saveOrUpdate(BookAd bookAd) {
         BookAd p = bookAdService.saveOrUpdate(bookAd);
         return "redirect:/bookAd/" + bookAd.getId();
     }
@@ -117,9 +139,7 @@ public class BookAdController {
     }*/
 
     @RequestMapping(value = "errors")
-    public String errorHandeler() {
+    public String errorHandler() {
         return "redirect:/error";
     }
 }
-
-
