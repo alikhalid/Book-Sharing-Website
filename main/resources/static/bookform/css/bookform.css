@@ -1,7 +1,7 @@
 
 
         legend{
-            color:#073dd1;
+            color: #d1c800;
             font-size:30px;
             font-weight:bold;
             alignment: center;
@@ -138,4 +138,7 @@
             background-color: white;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             margin-bottom: 25px;
+        }
+        select {
+            text-align: center;
         }
