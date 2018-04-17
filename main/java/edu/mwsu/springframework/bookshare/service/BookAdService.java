@@ -5,7 +5,7 @@ import edu.mwsu.springframework.bookshare.domain.BookAd;
 import java.util.List;
 
 public interface BookAdService {
-    List<BookAd> listBooks(String filter, String searchBy);
+    List<BookAd> listBooks(String searchBy);
     List<BookAd> applyFilter(String filter, String cat);
     BookAd getBookById(Integer id);
     BookAd saveOrUpdate(BookAd bookAd);

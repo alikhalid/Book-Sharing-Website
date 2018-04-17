@@ -19,7 +19,6 @@ import java.util.List;
 public class BookAdController {
 
     private BookAdService bookAdService;
-    private int i = 0;
     private List list;
 
     @Autowired
@@ -27,46 +26,35 @@ public class BookAdController {
         this.bookAdService = bookAdService;
     }
 
-    @RequestMapping(value = "/books/{cat}", method = RequestMethod.GET)
-    public String listBooks(@PathVariable("cat") String cat, Model model,
+    @RequestMapping(path = "/books/all", method = RequestMethod.GET)
+    public String listBooks(Model model,
                             @RequestParam(value = "searchBar", required = false) String searchBy,
                             @RequestParam(value = "categories", required = false) String categories,
                             @RequestParam(value = "filterBy", required = false) String filterBy,
                             @RequestParam(value = "sortBy", required = false) String sortBy) {
-        if ( i == 0) {
-            list = bookAdService.listBooks("all", "");
-            i = 2;
-        }
 
-        try {
-            if (searchBy == null) {
-                searchBy = new String("");
-            }
-        } catch (Exception e) {
-        }
 
         if (sortBy != null) {
             if (sortBy.equals("author")) {
                 list.sort((Comparator<BookAd>) (o1, o2) -> o1.getAuthor().compareTo(o2.getAuthor()));
-            }
-            else if (sortBy.equals("title")) {
+            } else if (sortBy.equals("title")) {
                 list.sort((Comparator<BookAd>) (o1, o2) -> o1.getTitle().compareTo(o2.getTitle()));
-            }
-            else {
-                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getEdition().compareTo(o2.getEdition()));
-            }
-        }
-
-        if (categories != null && categories.equals("all")) {
-            list = bookAdService.listBooks(cat, new String(searchBy));
-        } else {
-
-            if (categories != null || filterBy != null) {
-                list = bookAdService.applyFilter(filterBy, categories);
             } else {
-                list = bookAdService.listBooks(cat, new String(searchBy));
+                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
+            }
+        } else {
+            if (categories != null && categories.equals("all")) {
+                list = bookAdService.listBooks(searchBy);
+            } else {
+
+                if (categories != null || filterBy != null) {
+                    list = bookAdService.applyFilter(filterBy, categories);
+                } else {
+                    list = bookAdService.listBooks(searchBy);
+                }
             }
         }
+
         model.addAttribute("books", list);
         return "books";
     }
@@ -83,7 +71,6 @@ public class BookAdController {
                 model.addAttribute("bookAd", bookAd);
 
             } catch (Exception e) {
-
                 System.out.println("This book ad doesn't exist.");
             }
             return "bookAd";
@@ -107,18 +94,17 @@ public class BookAdController {
                     model.addAttribute("bookAd", bookAd);
                     return "bookAd";
                 }
-            } catch (Exception e) {
-            }
+            } catch (Exception e) { }
             return "redirect:/books/all";
         }
     }
 
-    @RequestMapping("/bookAd/edit/{id}")
+    /*@RequestMapping("/bookAd/edit/{id}")
     public String edit(@PathVariable Integer id, Model model,
                        @RequestParam(value = "edit", required = true) String edit) {
         model.addAttribute("bookAd", bookAdService.getBookByHashKey(edit));
         return "bookform";
-    }
+    }*/
 
     @RequestMapping("/bookAd/new")
     public String newProduct(Model model) {
@@ -142,4 +128,5 @@ public class BookAdController {
     public String errorHandler() {
         return "redirect:/error";
     }
+
 }
