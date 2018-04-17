@@ -1,0 +1,59 @@
+form.searchBar input[type=text] {
+    padding-top: 12px;
+    padding: 10px;
+    font-size: 14px;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px; 
+}
+
+form.searchBar button {
+    float: left;
+    padding-top: 12px;
+    width: 20%;
+    padding: 10px;
+    background: #862633;
+    color: white;
+    font-size: 15px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+form.searchBar button:hover {
+    background: #ecac00;
+}
+
+form.searchBar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+img.msuTexasLogo{
+    max-height: 50px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #862633;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    z-index: 9999999;
+ }
+
+ .terms{
+     text-decoration-color: white;
+     text-decoration: none;
+     color:white;
+     font-size: 12px;
+     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+ }
