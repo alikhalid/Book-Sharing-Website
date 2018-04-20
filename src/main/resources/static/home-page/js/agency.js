@@ -42,7 +42,7 @@
   // Hide navbar when modals trigger
   $('.categories-modal').on('show.bs.modal', function(e) {
     $(".navbar").addClass("d-none");
-  })
+  });
   $('.categories-modal').on('hidden.bs.modal', function(e) {
     $(".navbar").removeClass("d-none");
   })

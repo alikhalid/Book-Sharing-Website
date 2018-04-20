@@ -9,7 +9,7 @@ public interface BookAdService {
     List<BookAd> applyFilter(String filter, String cat);
     BookAd getBookById(Integer id);
     BookAd saveOrUpdate(BookAd bookAd);
-    void delete(String hashKey);
+    void delete(Integer id);
     BookAd getBookByHashKey(String hashKey);
     boolean verifyHash(Integer id, String hashKey);
 

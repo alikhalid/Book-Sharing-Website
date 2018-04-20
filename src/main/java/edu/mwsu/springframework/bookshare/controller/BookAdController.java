@@ -36,9 +36,9 @@ public class BookAdController {
 
         if (sortBy != null) {
             if (sortBy.equals("author")) {
-                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getAuthor().compareTo(o2.getAuthor()));
+                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getAuthor().toLowerCase().compareTo(o2.getAuthor().toLowerCase()));
             } else if (sortBy.equals("title")) {
-                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getTitle().compareTo(o2.getTitle()));
+                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase()));
             } else {
                 list.sort((Comparator<BookAd>) (o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
             }
@@ -75,7 +75,7 @@ public class BookAdController {
             }
             return "bookAd";
         } else if (edit != null) {
-            model.addAttribute("bookAd", bookAdService.getBookByHashKey(edit));
+            model.addAttribute("bookAd", bookAdService.getBookById(id));
             if (model.asMap().get("bookAd") != null &&
                     bookAdService.verifyHash(id, edit))
                 return "bookform";
@@ -88,7 +88,7 @@ public class BookAdController {
         } else {
             try {
                 if (bookAdService.verifyHash(id, delete))
-                    bookAdService.delete(delete);
+                    bookAdService.delete(id);
                 else {
                     BookAd bookAd = bookAdService.getBookById(id);
                     model.addAttribute("bookAd", bookAd);

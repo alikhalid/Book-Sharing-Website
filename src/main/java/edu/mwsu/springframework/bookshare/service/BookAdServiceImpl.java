@@ -24,20 +24,20 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd1.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/51IBi5Fx5oL._SX387_BO1,204,203,200_.jpg");
         bookAd1.setTitle("Calculus");
         bookAd1.setAuthor("Ron Larson");
-        bookAd1.setISBN("978-1285057095");
+        bookAd1.setISBN("9781285057095");
         bookAd1.setEdition("10th Edition");
         bookAd1.setGenre("Math");
         bookAd1.setType("Hardcover");
         bookAd1.setCourseNum("MATH 1634");
         bookAd1.setCourseName("Calculus 1");
-        bookAd1.setEmail("AKhal322@rocketmail.com");
+        bookAd1.setEmail("AKhal322@mwsu.edu");
         bookAd1.setBuy(true);
         bookAd1.setRent(false);
         bookAd1.setFree(false);
         bookAd1.setCondition("Like New");
         bookAd1.setPublisher("Brooks Cole");
-        bookAd1.setHashKey(/*generateHash(bookAd1.getTitle(), bookAd1.getId())*/ "123");
-        bookAd1.setPhoneNumber("808-080-8080");
+        bookAd1.setHashKey(generateHash(bookAd1.getTitle(), bookAd1.getId()));
+        bookAd1.setPhoneNumber("8080808080");
         bookAd1.setUserName("AKhal322");
 
 
@@ -50,20 +50,20 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd2.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/51l3ucqW6nL._SX402_BO1,204,203,200_.jpg");
         bookAd2.setTitle("Object-Oriented Software Engineering");
         bookAd2.setAuthor("David C. Kung Dr.");
-        bookAd2.setISBN("978-0073376257");
+        bookAd2.setISBN("9780073376257");
         bookAd2.setEdition("1st Edition");
         bookAd2.setGenre("Computer");
         bookAd2.setType("Hardcover");
         bookAd2.setCourseNum("CMPS 8654");
         bookAd2.setCourseName("Software Engineering");
-        bookAd2.setEmail("AKhal322@rocketmail.com");
+        bookAd2.setEmail("AKhal322@mwsu.edu");
         bookAd2.setBuy(true);
         bookAd2.setRent(false);
         bookAd2.setFree(false);
         bookAd2.setCondition("Like New");
         bookAd2.setPublisher("McGraw-Hill Education");
         bookAd2.setHashKey(generateHash(bookAd2.getTitle(), bookAd2.getId()));
-        bookAd2.setPhoneNumber("808-080-8080");
+        bookAd2.setPhoneNumber("8080808080");
         bookAd2.setUserName("AKhal322");
 
 
@@ -76,20 +76,20 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd3.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/41UWC4kbxGL._SX414_BO1,204,203,200_.jpg");
         bookAd3.setTitle("Campbell Biology");
         bookAd3.setAuthor("Jane B. Reece");
-        bookAd3.setISBN("978-0321558237");
+        bookAd3.setISBN("9780321558237");
         bookAd3.setEdition("9th Edition");
         bookAd3.setGenre("Natural Sciences");
         bookAd3.setType("Hardcover");
         bookAd3.setCourseNum("BIO 1234");
         bookAd3.setCourseName("Biology 1");
-        bookAd3.setEmail("AKhal322@rocketmail.com");
+        bookAd3.setEmail("AKhal322@mwsu.edu");
         bookAd3.setBuy(false);
         bookAd3.setRent(true);
         bookAd3.setFree(false);
         bookAd3.setCondition("Like New");
         bookAd3.setPublisher("Benjamin Cummings");
         bookAd3.setHashKey(generateHash(bookAd3.getTitle(), bookAd3.getId()));
-        bookAd3.setPhoneNumber("808-080-8080");
+        bookAd3.setPhoneNumber("8080808080");
         bookAd3.setUserName("AKhal322");
 
 
@@ -108,20 +108,20 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd4.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/41gH8BAcR0L._SX389_BO1,204,203,200_.jpg");
         bookAd4.setTitle("Understanding Business");
         bookAd4.setAuthor("William G Nickels");
-        bookAd4.setISBN("978-0078023163");
+        bookAd4.setISBN("9780078023163");
         bookAd4.setEdition("11th Edition");
         bookAd4.setGenre("Business");
         bookAd4.setType("Hardcover");
         bookAd4.setCourseNum("BIS 2461");
         bookAd4.setCourseName("Fondations of Business");
-        bookAd4.setEmail("AKhal322@rocketmail.com");
+        bookAd4.setEmail("AKhal322@mwsu.edu");
         bookAd4.setBuy(false);
         bookAd4.setRent(true);
         bookAd4.setFree(false);
         bookAd4.setCondition("Like New");
         bookAd4.setPublisher("McGraw-Hill Education");
         bookAd4.setHashKey(generateHash(bookAd4.getTitle(), bookAd4.getId()));
-        bookAd4.setPhoneNumber("808-080-8080");
+        bookAd4.setPhoneNumber("8080808080");
         bookAd4.setUserName("AKhal322");
 
 
@@ -134,20 +134,20 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd5.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/51OOdInnHWL._SX389_BO1,204,203,200_.jpg");
         bookAd5.setTitle("Basic English");
         bookAd5.setAuthor("Julie Lachance");
-        bookAd5.setISBN("978-0071849623");
+        bookAd5.setISBN("9780071849623");
         bookAd5.setEdition("2nd Edition");
         bookAd5.setGenre("English");
         bookAd5.setType("Paperback");
         bookAd5.setCourseNum("ENG 1111");
         bookAd5.setCourseName("Learn English 101");
-        bookAd5.setEmail("AKhal322@rocketmail.com");
+        bookAd5.setEmail("AKhal322@mwsu.edu");
         bookAd5.setBuy(false);
         bookAd5.setRent(false);
         bookAd5.setFree(true);
         bookAd5.setCondition("Like New");
         bookAd5.setPublisher("McGraw-Hill Education");
         bookAd5.setHashKey(generateHash(bookAd5.getTitle(), bookAd5.getId()));
-        bookAd5.setPhoneNumber("808-080-8080");
+        bookAd5.setPhoneNumber("8080808080");
         bookAd5.setUserName("AKhal322");
 
 
@@ -160,20 +160,20 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd6.setImageUrl("https://images-na.ssl-images-amazon.com/images/I/5122xXTVPZL._SX395_BO1,204,203,200_.jpg");
         bookAd6.setTitle("Thermodynamics: An Engineering Approach");
         bookAd6.setAuthor("Yunus A. Cengel & Michael A. Boles");
-        bookAd6.setISBN("978-0073398174");
+        bookAd6.setISBN("9780073398174");
         bookAd6.setEdition("8th Edition");
         bookAd6.setGenre("Engineering");
         bookAd6.setType("Hardcover");
         bookAd6.setCourseNum("ENGI 2555");
         bookAd6.setCourseName("Thermodynamics");
-        bookAd6.setEmail("AKhal322@rocketmail.com");
+        bookAd6.setEmail("AKhal322@mwsu.edu");
         bookAd6.setBuy(false);
         bookAd6.setRent(false);
         bookAd6.setFree(true);
         bookAd6.setCondition("Like New");
         bookAd6.setPublisher("McGraw-Hill Education");
         bookAd6.setHashKey(generateHash(bookAd6.getTitle(), bookAd6.getId()));
-        bookAd6.setPhoneNumber("808-080-8080");
+        bookAd6.setPhoneNumber("8080808080");
         bookAd6.setUserName("AKhal322");
 
 
@@ -257,11 +257,8 @@ public class BookAdServiceImpl implements BookAdService {
     }
 
     @Override
-    public void delete(String hashKey) {
-        for (Map.Entry<Integer, BookAd> ad : bookAds.entrySet()) {
-            if (ad.getValue().getHashKey().equals(hashKey))
-                bookAds.remove(ad.getValue().getId());
-        }
+    public void delete(Integer id) {
+        bookAds.remove(id);
     }
 
     @Override
@@ -276,15 +273,14 @@ public class BookAdServiceImpl implements BookAdService {
 
     @Override
     public boolean verifyHash(Integer id, String hashKey) {
-        if (bookAds.get(id).getHashKey().equals(hashKey))
-            return true;
-        return false;
+        return bookAds.get(id).getHashKey().equals(hashKey);
     }
 
     public String generateHash(String book, Integer id) {
         book.concat(String.valueOf(id));
-        Integer hashKey = book.hashCode();
-        return hashKey.toString();
+        //Integer hashKey = book.hashCode();
+        //return hashKey.toString();
+        return new String("123");
     }
 
     @Override
@@ -301,7 +297,9 @@ public class BookAdServiceImpl implements BookAdService {
             } else {//this is new
                 bookAd.setId(getNextKey());
             }
-            bookAd.setHashKey(generateHash(bookAd.getTitle(), bookAd.getId()));
+            if (bookAd.getImageUrl() == null || bookAd.getImageUrl().equals(""))
+                bookAd.setImageUrl("https://image.shutterstock.com/z/stock-vector-black-linear-photo-camera-logo-like-no-image-available-flat-stroke-style-trend-modern-logotype-art-622639151.jpg");
+            //bookAd.setHashKey(generateHash(bookAd.getTitle(), bookAd.getId()));
             bookAds.put(bookAd.getId(), bookAd);//save it in hash map
         } else {
             throw new RuntimeException("Cannot create bookAd!");
