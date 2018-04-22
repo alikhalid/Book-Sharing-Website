@@ -30,7 +30,7 @@ public class BookAdServiceImpl implements BookAdService {
         bookAd1.setType("Hardcover");
         bookAd1.setCourseNum("MATH 1634");
         bookAd1.setCourseName("Calculus 1");
-        bookAd1.setEmail("AKhal322@mwsu.edu");
+        bookAd1.setEmail("akhalid0322@d2l.mwsu.edu");
         bookAd1.setBuy(true);
         bookAd1.setRent(false);
         bookAd1.setFree(false);
@@ -278,9 +278,8 @@ public class BookAdServiceImpl implements BookAdService {
 
     public String generateHash(String book, Integer id) {
         book.concat(String.valueOf(id));
-        //Integer hashKey = book.hashCode();
-        //return hashKey.toString();
-        return new String("123");
+        Integer hashKey = book.hashCode();
+        return hashKey.toString();
     }
 
     @Override

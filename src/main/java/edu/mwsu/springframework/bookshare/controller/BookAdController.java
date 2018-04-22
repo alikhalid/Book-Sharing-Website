@@ -2,7 +2,11 @@ package edu.mwsu.springframework.bookshare.controller;
 
 import edu.mwsu.springframework.bookshare.domain.BookAd;
 import edu.mwsu.springframework.bookshare.service.BookAdService;
+import edu.mwsu.springframework.bookshare.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +18,14 @@ import javax.validation.constraints.Null;
 import java.awt.print.Book;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Properties;
 
 @Controller
 public class BookAdController {
 
     private BookAdService bookAdService;
+    @Autowired
+    private EmailService emailService;
     private List list;
 
     @Autowired
@@ -36,11 +43,14 @@ public class BookAdController {
 
         if (sortBy != null) {
             if (sortBy.equals("author")) {
-                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getAuthor().toLowerCase().compareTo(o2.getAuthor().toLowerCase()));
+                list.sort((Comparator<BookAd>) (o1, o2) ->
+                        o1.getAuthor().toLowerCase().compareTo(o2.getAuthor().toLowerCase()));
             } else if (sortBy.equals("title")) {
-                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase()));
+                list.sort((Comparator<BookAd>) (o1, o2) ->
+                        o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase()));
             } else {
-                list.sort((Comparator<BookAd>) (o1, o2) -> o1.getPrice().compareTo(o2.getPrice()));
+                list.sort((Comparator<BookAd>) (o1, o2) ->
+                        o1.getPrice().compareTo(o2.getPrice()));
             }
         } else {
             if (categories != null && categories.equals("all")) {
@@ -62,9 +72,15 @@ public class BookAdController {
     @RequestMapping("/bookAd/{id}")
     public String getBook(@PathVariable("id") Integer id, Model model,
                           @RequestParam(value = "delete", required = false) String delete,
-                          @RequestParam(value = "edit", required = false) String edit
+                          @RequestParam(value = "edit", required = false) String edit,
+                          @RequestParam(value = "email", required = false) String email
     ) {
 
+        if (email != null) {
+            BookAd bookAd = bookAdService.getBookById(id);
+            emailService.sendHash(bookAd, email);
+            return "redirect:/bookAd/{id}#close";
+        }
         if (edit == null && delete == null) {
             try {
                 BookAd bookAd = bookAdService.getBookById(id);
@@ -99,13 +115,6 @@ public class BookAdController {
         }
     }
 
-    /*@RequestMapping("/bookAd/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model,
-                       @RequestParam(value = "edit", required = true) String edit) {
-        model.addAttribute("bookAd", bookAdService.getBookByHashKey(edit));
-        return "bookform";
-    }*/
-
     @RequestMapping("/bookAd/new")
     public String newProduct(Model model) {
         model.addAttribute("bookAd", new BookAd());
@@ -118,13 +127,7 @@ public class BookAdController {
         return "redirect:/bookAd/" + bookAd.getId();
     }
 
-    /*@RequestMapping("/bookAd/delete/{id}")
-    public String delete(@PathVariable Integer id){
-        bookAdService.delete(id);
-        return "redirect:/books";
-    }*/
-
-    @RequestMapping(value = "errors")
+    @RequestMapping(value = "/errors")
     public String errorHandler() {
         return "redirect:/error";
     }
